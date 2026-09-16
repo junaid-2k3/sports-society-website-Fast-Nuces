@@ -1,0 +1,47 @@
+---
+const links = [
+  { name: "Home", href: "#" },
+  { name: "Events", href: "#events" },
+  { name: "Teams", href: "#teams" },
+  { name: "Join", href: "#join" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3">
+        <span class="text-2xl font-bold tracking-wider text-red-600">THE</span>
+        <span class="text-2xl font-bold tracking-wider">MUSS</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <a
+        href="#join"
+        class="hidden md:inline-flex items-center px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-full transition-colors"
+      >
+        Join the Movement
+      </a>
+
+      <!-- Mobile menu button (simple for now) -->
+      <button class="md:hidden text-white" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,60 @@
+---
+// Replace these with your own images later
+const heroImage = "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000"; // crowd / stadium
+---
+
+<section class="relative h-screen w-full overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src={heroImage}
+      alt="Student section energy"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Dark + Red Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+  <div class="absolute inset-0 bg-red-900/30 mix-blend-multiply"></div>
+
+  <!-- Subtle noise -->
+  <div class="absolute inset-0 noise opacity-40 pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+    <!-- Logo / Brand -->
+    <div class="mb-6">
+      <h1 class="text-7xl sm:text-8xl md:text-9xl font-bold tracking-tighter leading-none">
+        <span class="block text-white">THE</span>
+        <span class="block text-red-600 -mt-4 md:-mt-6">MUSS</span>
+      </h1>
+    </div>
+
+    <p class="max-w-xl text-lg md:text-xl text-white/90 font-medium mb-10">
+      This isn’t just a student section.<br />
+      <span class="text-red-400 font-semibold">It’s a movement.</span>
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a
+        href="#join"
+        class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded-full transition-all hover:scale-105"
+      >
+        Join the Chaos
+      </a>
+      <a
+        href="#events"
+        class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold text-lg rounded-full border border-white/30 transition-all"
+      >
+        See Events
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 rounded-full border-2 border-white/40 flex justify-center pt-2">
+      <div class="w-1.5 h-3 bg-white/60 rounded-full"></div>
+    </div>
+  </div>
+</section>
