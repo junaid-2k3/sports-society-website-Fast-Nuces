@@ -1,0 +1,323 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import MatchFixtures from "../components/MatchFixtures.astro";
+
+const dayByDaySchedule = [
+  {
+    day: "Day 1",
+    dayTitle: "DAY 1: OPENING CEREMONY & QUALIFIERS",
+    dateLabel: "OCTOBER 15, 2026",
+    matches: [
+      {
+        time: "09:00 AM - 09:45 AM",
+        sport: "Sports Gala Grand Opening",
+        matchName: "Torch Relay & Flag Unfurling Ceremony",
+        category: "ALL SQUADS",
+        venue: "FAST Main Sports Complex Ground",
+        status: "CEREMONY",
+        teams: "All Campus Houses & Squads",
+      },
+      {
+        time: "10:00 AM - 01:00 PM",
+        sport: "Cricket T20",
+        matchName: "CS Cyclones vs SE Strikers (Match 1)",
+        category: "MEN'S CRICKET",
+        venue: "FAST Main Cricket Pitch",
+        status: "QUALIFIER",
+        teams: "Departmental Derby",
+      },
+      {
+        time: "02:00 PM - 03:30 PM",
+        sport: "Futsal / Football",
+        matchName: "EE Thunder vs DS Dynamos (Match 1)",
+        category: "MEN'S FUTSAL",
+        venue: "FAST Main Football Stadium",
+        status: "GROUP STAGE",
+        teams: "Group A",
+      },
+      {
+        time: "04:00 PM - 06:00 PM",
+        sport: "Volleyball",
+        matchName: "AI Gladiators vs Cyber Titans",
+        category: "MEN'S VOLLEYBALL",
+        venue: "Outdoor Volleyball Court",
+        status: "QUALIFIER",
+        teams: "Group B",
+      },
+    ],
+  },
+  {
+    day: "Day 2",
+    dayTitle: "DAY 2: BASKETBALL, VOLLEYBALL & BADMINTON",
+    dateLabel: "OCTOBER 16, 2026",
+    matches: [
+      {
+        time: "09:30 AM - 11:30 AM",
+        sport: "Badminton Singles & Doubles",
+        matchName: "Men's & Women's Knockout Rounds",
+        category: "MIXED BADMINTON",
+        venue: "FAST Indoor Gymnasium",
+        status: "KNOCKOUTS",
+        teams: "32 Singles & 16 Doubles Teams",
+      },
+      {
+        time: "11:30 AM - 01:30 PM",
+        sport: "Table Tennis",
+        matchName: "Inter-Departmental Ping Pong Battle",
+        category: "MEN & WOMEN",
+        venue: "Indoor Hall Table 1 & 2",
+        status: "QUARTER FINALS",
+        teams: "16 Players Remaining",
+      },
+      {
+        time: "02:30 PM - 04:30 PM",
+        sport: "Basketball",
+        matchName: "CS Cyclones vs AI Gladiators",
+        category: "MEN'S BASKETBALL",
+        venue: "FAST Indoor Basketball Arena",
+        status: "SEMI-FINAL 1",
+        teams: "Semi-Final Clashes",
+      },
+      {
+        time: "05:00 PM - 07:00 PM",
+        sport: "Volleyball Final",
+        matchName: "Volleyball Championship Match",
+        category: "MEN'S SQUAD",
+        venue: "Volleyball Court Arena",
+        status: "FINAL MATCH",
+        teams: "Top 2 Qualifying Teams",
+      },
+    ],
+  },
+  {
+    day: "Day 3",
+    dayTitle: "DAY 3: E-SPORTS, CHESS & SEMI-FINALS",
+    dateLabel: "OCTOBER 17, 2026",
+    matches: [
+      {
+        time: "10:00 AM - 01:00 PM",
+        sport: "E-Sports Gaming",
+        matchName: "Valorant & FIFA 26 Cyber Tournament",
+        category: "CYBER DIVISION",
+        venue: "Main Gaming Auditorium / Live Stream",
+        status: "CHAMPIONSHIP",
+        teams: "8 Qualified Cyber Teams",
+      },
+      {
+        time: "10:30 AM - 01:30 PM",
+        sport: "Chess & Mind Sports",
+        matchName: "FASTian Grandmasters Rapid Chess",
+        category: "OPEN CHESS",
+        venue: "Executive Seminar Hall",
+        status: "5-ROUND SWISS",
+        teams: "24 Mind Sport Participants",
+      },
+      {
+        time: "02:30 PM - 05:30 PM",
+        sport: "Cricket T20 Semi-Final",
+        matchName: "Semi-Final 1: Group A Winner vs Group B Runner-Up",
+        category: "CRICKET",
+        venue: "FAST Main Cricket Pitch",
+        status: "SEMI-FINAL",
+        teams: "Winner Advances to Day 4 Final",
+      },
+      {
+        time: "06:00 PM - 08:00 PM",
+        sport: "Futsal Semi-Final",
+        matchName: "Futsal Night Semi-Finals",
+        category: "FUTSAL",
+        venue: "FAST Main Floodlit Turf",
+        status: "NIGHT MATCH",
+        teams: "Top 4 Futsal Squads",
+      },
+    ],
+  },
+  {
+    day: "Day 4",
+    dayTitle: "DAY 4: GRAND FINALS, ATHLETICS & AWARD CEREMONY",
+    dateLabel: "OCTOBER 18, 2026",
+    matches: [
+      {
+        time: "09:00 AM - 11:30 AM",
+        sport: "Athletics & Track Sprint",
+        matchName: "100m, 400m Sprint & Relay Finals",
+        category: "TRACK & FIELD",
+        venue: "Main Athletics Track",
+        status: "GRAND FINAL",
+        teams: "All Campus Sprinters",
+      },
+      {
+        time: "11:30 AM - 01:30 PM",
+        sport: "Basketball Grand Final",
+        matchName: "Basketball Championship Trophy Match",
+        category: "MEN & WOMEN",
+        venue: "Indoor Sports Complex",
+        status: "TROPHY MATCH",
+        teams: "Finalists",
+      },
+      {
+        time: "02:30 PM - 05:30 PM",
+        sport: "Cricket T20 Grand Final",
+        matchName: "FAST Sports Mega Gala Cricket Championship Final",
+        category: "CRICKET FINAL",
+        venue: "FAST Main Cricket Ground",
+        status: "MEGA FINAL",
+        teams: "Top 2 Teams",
+      },
+      {
+        time: "06:00 PM - 08:00 PM",
+        sport: "Closing Ceremony & Awards",
+        matchName: "Trophy Presentation, Medals & Director Address",
+        category: "AWARD GALA",
+        venue: "Main Amphitheatre / Sports Ground",
+        status: "CLOSING GALA",
+        teams: "All Sports Society Members & Winners",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="4-Day Event Sports Schedule | FAST NUCES Peshawar Sports Society">
+  <Navbar />
+  <main class="pt-28 pb-24 bg-black text-white">
+    
+    <!-- Hero Header -->
+    <div class="relative py-16 bg-gradient-to-b from-red-950/60 via-zinc-950 to-black border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="px-4 py-1.5 bg-red-600 text-white font-bebas text-sm tracking-widest uppercase rounded-full shadow-lg">
+          ANNUAL SPORTS MEGA FESTIVAL
+        </span>
+        <h1 class="font-bebas text-6xl sm:text-8xl tracking-tight text-white mt-4">
+          4-DAY EVENT <span class="text-red-600">FULL SPORTS SCHEDULE</span>
+        </h1>
+        <p class="max-w-3xl mx-auto text-zinc-300 text-base sm:text-lg mt-4">
+          Complete day-by-day fixtures, timings, venues, and status for all sports disciplines at the FAST NUCES Peshawar Annual Sports Gala.
+        </p>
+      </div>
+    </div>
+
+    <!-- Featured Match Teaser -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <MatchFixtures />
+    </div>
+
+    <!-- Day By Day Full Schedule Section -->
+    <div id="full-schedule" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- Day Tabs Navigation -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-12" id="day-tabs">
+        <button data-target="all" class="tab-btn active px-6 py-3 rounded-full font-bebas text-xl tracking-wider uppercase transition-all bg-red-600 text-white shadow-lg">
+          ALL 4 DAYS
+        </button>
+        <button data-target="Day 1" class="tab-btn px-6 py-3 rounded-full font-bebas text-xl tracking-wider uppercase transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+          DAY 1 (OCT 15)
+        </button>
+        <button data-target="Day 2" class="tab-btn px-6 py-3 rounded-full font-bebas text-xl tracking-wider uppercase transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+          DAY 2 (OCT 16)
+        </button>
+        <button data-target="Day 3" class="tab-btn px-6 py-3 rounded-full font-bebas text-xl tracking-wider uppercase transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+          DAY 3 (OCT 17)
+        </button>
+        <button data-target="Day 4" class="tab-btn px-6 py-3 rounded-full font-bebas text-xl tracking-wider uppercase transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+          DAY 4 (OCT 18)
+        </button>
+      </div>
+
+      <!-- Schedule Content Cards -->
+      <div class="space-y-12">
+        {dayByDaySchedule.map((dayGroup) => (
+          <div class="day-section bg-zinc-950 rounded-3xl p-6 sm:p-10 border border-zinc-800/80 shadow-2xl" data-day={dayGroup.day}>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-zinc-800 gap-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-red-500 block">
+                  {dayGroup.dateLabel}
+                </span>
+                <h2 class="font-bebas text-3xl sm:text-4xl text-white tracking-wide mt-1">
+                  {dayGroup.dayTitle}
+                </h2>
+              </div>
+              <span class="px-4 py-1.5 bg-red-950/80 border border-red-800/60 text-red-300 font-bebas text-lg rounded-full w-fit">
+                4 MATCHES SCHEDULED
+              </span>
+            </div>
+
+            <!-- Matches List Table/Cards -->
+            <div class="grid grid-cols-1 gap-4">
+              {dayGroup.matches.map((m) => (
+                <div class="p-5 sm:p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-red-600/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                  
+                  <div class="flex items-start gap-4">
+                    <div class="px-4 py-3 bg-black rounded-xl border border-zinc-800 text-center min-w-[130px]">
+                      <span class="text-xs font-bold uppercase tracking-wider text-red-400 block font-mono">TIME</span>
+                      <span class="text-sm font-extrabold text-white">{m.time}</span>
+                    </div>
+
+                    <div>
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider bg-red-600/20 text-red-400 border border-red-900/50">
+                          {m.sport}
+                        </span>
+                        <span class="text-xs text-zinc-500 font-mono">
+                          {m.category}
+                        </span>
+                      </div>
+
+                      <h3 class="font-bebas text-2xl text-white tracking-wide mt-1 group-hover:text-red-500 transition-colors">
+                        {m.matchName}
+                      </h3>
+
+                      <p class="text-xs text-zinc-400 mt-1">
+                        📍 Venue: <strong class="text-zinc-200">{m.venue}</strong> • Format: {m.teams}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-3 self-end md:self-center">
+                    <span class="px-4 py-1.5 rounded-full bg-zinc-950 border border-zinc-700 text-xs font-bold text-zinc-300 uppercase tracking-widest">
+                      {m.status}
+                    </span>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const daySections = document.querySelectorAll(".day-section");
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabBtns.forEach((b) => {
+        b.classList.remove("bg-red-600", "text-white", "shadow-lg");
+        b.classList.add("bg-zinc-900", "text-zinc-400");
+      });
+      btn.classList.remove("bg-zinc-900", "text-zinc-400");
+      btn.classList.add("bg-red-600", "text-white", "shadow-lg");
+
+      const target = btn.getAttribute("data-target");
+
+      daySections.forEach((section) => {
+        if (target === "all" || section.getAttribute("data-day") === target) {
+          (section as HTMLElement).style.display = "block";
+        } else {
+          (section as HTMLElement).style.display = "none";
+        }
+      });
+    });
+  });
+</script>

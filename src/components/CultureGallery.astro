@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+
+import g1 from "../assets/pexels-edwardeyer-10611956.jpg";
+import g2 from "../assets/pexels-hobiphotography-36398789.jpg";
+import g3 from "../assets/pexels-bennycool-26238648.jpg";
+import g4 from "../assets/pexels-celio-junior-106557696-38233888.jpg";
+import g5 from "../assets/pexels-chuck-2834917.jpg";
+import g6 from "../assets/pexels-cottonbro-6777167.jpg";
+
+const galleryItems = [
+  { img: g1, title: "The Red Wave Crowd", caption: "FAST Annual Sports Gala 2025" },
+  { img: g2, title: "Champions Trophy Lift", caption: "Campus Cricket Final" },
+  { img: g3, title: "Fastian Huddle", caption: "Pre-Match Motivation" },
+  { img: g4, title: "Night Match Atmosphere", caption: "FAST Peshawar Sports Complex" },
+  { img: g5, title: "Student Section Energy", caption: "Noise Level Record Hit" },
+  { img: g6, title: "Sports Gala Opening", caption: "Annual Torch Relay Ceremony" },
+];
+---
+
+<section class="py-24 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-400">Match Day Energy</span>
+        </div>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-tight text-white">
+          STUDENT SECTION <span class="text-red-600">GALLERY</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg max-w-xl">
+          Capturing the loud, chaotic, and electric atmosphere of FAST NUCES Peshawar sports events.
+        </p>
+      </div>
+
+      <a
+        href="/gallery"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold text-sm tracking-wider uppercase rounded-full shadow-lg shadow-red-950/50 transition-all w-fit"
+      >
+        <span>View Full Photo Vault</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item, index) => (
+        <div class="group relative rounded-3xl overflow-hidden bg-zinc-900 h-80 border border-zinc-800 hover:border-red-600/60 transition-all duration-500 shadow-xl">
+          <Image
+            src={item.img}
+            alt={item.title}
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90 group-hover:brightness-100"
+          />
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+
+          <div class="absolute bottom-6 left-6 right-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-red-400 block mb-1">
+              {item.caption}
+            </span>
+            <h3 class="font-bebas text-2xl sm:text-3xl text-white tracking-wide leading-none">
+              {item.title}
+            </h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

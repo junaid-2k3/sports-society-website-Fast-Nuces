@@ -1,60 +1,62 @@
 ---
-// Replace these with your own images later
-const heroImage = "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000"; // crowd / stadium
+import { Image } from "astro:assets";
+import heroImg from "../assets/pexels-edwardeyer-10611956.jpg";
 ---
 
-<section class="relative h-screen w-full overflow-hidden">
-  <!-- Background Image -->
-  <div class="absolute inset-0">
-    <img
-      src={heroImage}
-      alt="Student section energy"
-      class="w-full h-full object-cover"
+<section class="relative min-h-[85vh] w-full flex flex-col justify-between overflow-hidden pt-24 bg-black">
+  <!-- Background Sports Image -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={heroImg}
+      alt="FAST NUCES Peshawar Sports Stadium"
+      class="w-full h-full object-cover object-center filter brightness-[0.4] contrast-110"
+      loading="eager"
     />
   </div>
 
-  <!-- Dark + Red Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
-  <div class="absolute inset-0 bg-red-900/30 mix-blend-multiply"></div>
+  <div class="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/60 to-black/80"></div>
 
-  <!-- Subtle noise -->
-  <div class="absolute inset-0 noise opacity-40 pointer-events-none"></div>
+  <!-- Hero Main Content -->
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto text-center flex flex-col items-center py-16">
+    
+    <span class="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 font-mono">
+      FAST NUCES Peshawar Sports Portal
+    </span>
 
-  <!-- Content -->
-  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-    <!-- Logo / Brand -->
-    <div class="mb-6">
-      <h1 class="text-7xl sm:text-8xl md:text-9xl font-bold tracking-tighter leading-none">
-        <span class="block text-white">THE</span>
-        <span class="block text-red-600 -mt-4 md:-mt-6">MUSS</span>
-      </h1>
-    </div>
+    <h1 class="font-bebas text-6xl sm:text-8xl md:text-9xl tracking-tighter leading-none text-white">
+      <span class="block text-zinc-300 uppercase tracking-widest text-3xl sm:text-5xl md:text-6xl mb-1">FAST NUCES PESHAWAR</span>
+      <span class="block text-red-600">THE CYCLONES</span>
+    </h1>
 
-    <p class="max-w-xl text-lg md:text-xl text-white/90 font-medium mb-10">
-      This isn’t just a student section.<br />
-      <span class="text-red-400 font-semibold">It’s a movement.</span>
+    <p class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-zinc-300 font-medium leading-relaxed">
+      We bring the noise. We bring the passion.<br />
+      The official athletic portal for FAST NUCES Peshawar sports, 4-day fixtures, rules, and core team.
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4">
+    <div class="mt-10 flex flex-wrap gap-4 justify-center items-center">
       <a
-        href="#join"
-        class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded-full transition-all hover:scale-105"
+        href="/fixtures"
+        class="px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm tracking-wider uppercase rounded-xl transition-all shadow-lg"
       >
-        Join the Chaos
+        View 4-Day Fixtures
       </a>
       <a
-        href="#events"
-        class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold text-lg rounded-full border border-white/30 transition-all"
+        href="/sports"
+        class="px-8 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-bold text-sm tracking-wider uppercase rounded-xl border border-zinc-800 transition-all"
       >
-        See Events
+        Explore Sports & Rules
       </a>
     </div>
+
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <div class="w-6 h-10 rounded-full border-2 border-white/40 flex justify-center pt-2">
-      <div class="w-1.5 h-3 bg-white/60 rounded-full"></div>
+  <!-- Bottom Stats Strip -->
+  <div class="relative z-20 w-full bg-zinc-950/90 border-t border-zinc-800 py-4 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-around gap-6 text-center text-xs font-mono text-zinc-400">
+      <div><strong class="text-white text-base font-bebas block text-red-500">4 DAYS</strong> Annual Sports Gala</div>
+      <div><strong class="text-white text-base font-bebas block text-red-500">9+ SPORTS</strong> Disciplines & Rules</div>
+      <div><strong class="text-white text-base font-bebas block text-red-500">500+ ATHLETES</strong> Campus Competitors</div>
+      <div><strong class="text-white text-base font-bebas block text-red-500">CORE TEAM</strong> Student Leadership</div>
     </div>
   </div>
 </section>

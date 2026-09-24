@@ -1,0 +1,227 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const executiveBoard = [
+  {
+    name: "Muhammad Saad",
+    role: "President, Sports Society",
+    category: "Executive Board",
+    dept: "BS Computer Science (Batch '23)",
+    quote: "Building the loudest, most passionate, and disciplined student athletic section in KPK.",
+    avatar: "/logos/sports_society_logo.png",
+    email: "saad.president@nu.edu.pk",
+    phone: "+92 300 1112233",
+  },
+  {
+    name: "Zarak Khan",
+    role: "Vice President",
+    category: "Executive Board",
+    dept: "BS Software Engineering (Batch '23)",
+    quote: "Sports at FAST is defined by resilience, teamwork, and absolute dedication.",
+    avatar: "/logos/sports_society_logo.png",
+    email: "zarak.vp@nu.edu.pk",
+    phone: "+92 301 2223344",
+  },
+  {
+    name: "Mahnoor Afridi",
+    role: "General Secretary",
+    category: "Executive Board",
+    dept: "BS Data Science (Batch '24)",
+    quote: "Ensuring structured operations and equal sports opportunities for all student athletes.",
+    avatar: "/logos/sports_society_logo.png",
+    email: "mahnoor.gensec@nu.edu.pk",
+    phone: "+92 302 3334455",
+  },
+  {
+    name: "Hamza Paracha",
+    role: "Joint Secretary & Treasurer",
+    category: "Executive Board",
+    dept: "BS Electrical Engineering (Batch '24)",
+    quote: "Transparent budgeting, logistics, and ground management for every sports gala.",
+    avatar: "/logos/sports_society_logo.png",
+    email: "hamza.treasurer@nu.edu.pk",
+    phone: "+92 303 4445566",
+  },
+];
+
+const disciplineHeads = [
+  {
+    name: "Hamza Khan",
+    role: "Head of Cricket",
+    category: "Discipline Heads",
+    dept: "BS Computer Science ('23)",
+    quote: "Managing tape ball leagues & T20 hardball squads.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Shahzar Afridi",
+    role: "Head of Football & Futsal",
+    category: "Discipline Heads",
+    dept: "BS Software Engineering ('23)",
+    quote: "Leading FAST Red Cyclones FC to championship glory.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Bilal Ahmad",
+    role: "Head of Basketball",
+    category: "Discipline Heads",
+    dept: "BS Electrical Eng ('24)",
+    quote: "Fostering speed, tactical execution, and court spirit.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Usman Shinwari",
+    role: "Head of Volleyball",
+    category: "Discipline Heads",
+    dept: "BS Computer Science ('24)",
+    quote: "Dominating the volleyball arena with tactical precision.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Ayesha Gul",
+    role: "Head of Badminton",
+    category: "Discipline Heads",
+    dept: "BS Artificial Intelligence ('24)",
+    quote: "Organizing mixed doubles & singles campus tournaments.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Rayan Khattak",
+    role: "Head of E-Sports & Gaming",
+    category: "Discipline Heads",
+    dept: "BS Cyber Security ('24)",
+    quote: "Building competitive Valorant and FIFA gaming squads.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+];
+
+const facultyAdvisors = [
+  {
+    name: "Dr. Muhammad Farooq",
+    role: "Faculty Director of Sports",
+    dept: "Department of Computer Science",
+    quote: "Empowering student leadership, physical fitness, and holistic character building at FAST.",
+    avatar: "/logos/fast_nu_full_log.png",
+  },
+  {
+    name: "Prof. Tariq Shinwari",
+    role: "Sports Patron & Coordinator",
+    dept: "Sports Office Directorate",
+    quote: "Providing world-class athletic facilities and championship support to all campus athletes.",
+    avatar: "/logos/fast_nu_full_log.png",
+  },
+];
+---
+
+<Layout title="Core Team & Executive Leadership | FAST NUCES Peshawar Sports Society">
+  <Navbar />
+  <main class="pt-28 pb-24 bg-black text-white">
+    
+    <!-- Hero Header -->
+    <div class="relative py-16 bg-gradient-to-b from-red-950/60 via-zinc-950 to-black border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="px-4 py-1.5 bg-red-600 text-white font-bebas text-sm tracking-widest uppercase rounded-full shadow-lg">
+          SOCIETY LEADERSHIP
+        </span>
+        <h1 class="font-bebas text-6xl sm:text-8xl tracking-tight text-white mt-4">
+          MEET OUR <span class="text-red-600">CORE TEAM</span>
+        </h1>
+        <p class="max-w-3xl mx-auto text-zinc-300 text-base sm:text-lg mt-4">
+          The dedicated student leaders, executive board, discipline heads, and faculty advisors driving FAST NUCES Peshawar athletic excellence.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 1: Faculty Advisory Board -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-zinc-900">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-red-500">Mentorship</span>
+        <h2 class="font-bebas text-4xl sm:text-6xl tracking-wide text-white mt-1">FACULTY ADVISORS & DIRECTORS</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {facultyAdvisors.map((f) => (
+          <div class="p-8 rounded-3xl bg-zinc-950 border border-red-900/40 flex flex-col items-center text-center shadow-xl">
+            <div class="w-24 h-24 rounded-full bg-black p-3 border-2 border-red-600 mb-4 shadow-lg flex items-center justify-center">
+              <img src={f.avatar} alt={f.name} class="w-full h-full object-contain filter brightness-200" />
+            </div>
+            <h3 class="font-bebas text-3xl text-white tracking-wide">{f.name}</h3>
+            <span class="text-xs font-bold uppercase tracking-widest text-red-400 mt-1">{f.role}</span>
+            <span class="text-xs text-zinc-400 font-mono mt-0.5 mb-4">{f.dept}</span>
+            <p class="text-xs text-zinc-300 italic bg-zinc-900 p-4 rounded-xl border border-zinc-800">
+              "{f.quote}"
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 2: Executive Board -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-zinc-900">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-red-500">Executive Cabinet</span>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-wide text-white mt-1">THE EXECUTIVE BOARD</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">Managing society administration, mega event logistics, and student welfare.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {executiveBoard.map((m) => (
+          <div class="p-6 rounded-3xl bg-zinc-950 border border-zinc-800 flex flex-col items-center text-center group hover:border-red-600/70 transition-all duration-300 shadow-xl hover:-translate-y-1">
+            <div class="w-24 h-24 rounded-full bg-black p-2 border-2 border-red-600/60 mb-4 shadow-xl flex items-center justify-center">
+              <img src={m.avatar} alt={m.name} class="w-full h-full object-contain filter drop-shadow" />
+            </div>
+            
+            <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-red-500 transition-colors leading-none">
+              {m.name}
+            </h3>
+            
+            <span class="text-xs font-extrabold uppercase tracking-widest text-red-400 mt-1 block">
+              {m.role}
+            </span>
+            
+            <span class="text-[11px] text-zinc-500 font-mono mt-0.5 mb-4 block">
+              {m.dept}
+            </span>
+
+            <p class="text-xs text-zinc-400 italic bg-zinc-900 p-3 rounded-xl border border-zinc-800/80 w-full mt-auto mb-4">
+              "{m.quote}"
+            </p>
+
+            <div class="w-full pt-3 border-t border-zinc-900 text-[11px] text-zinc-400 space-y-1">
+              <p>✉️ {m.email}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 3: Discipline Heads -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-red-500">Sports Coordinators</span>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-wide text-white mt-1">DISCIPLINE HEADS</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">Captains and heads in charge of trials, practice sessions, and match rules.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {disciplineHeads.map((dh) => (
+          <div class="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800 flex items-center gap-4 hover:border-red-600/50 transition-all">
+            <div class="w-16 h-16 rounded-full bg-black p-2 border border-red-600/60 flex-shrink-0 flex items-center justify-center">
+              <img src={dh.avatar} alt={dh.name} class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <h4 class="font-bebas text-2xl text-white tracking-wide">{dh.name}</h4>
+              <span class="text-xs font-bold text-red-400 uppercase tracking-widest block">{dh.role}</span>
+              <span class="text-[11px] text-zinc-400 font-mono block">{dh.dept}</span>
+              <p class="text-xs text-zinc-400 mt-1 italic">"{dh.quote}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </main>
+  <Footer />
+</Layout>

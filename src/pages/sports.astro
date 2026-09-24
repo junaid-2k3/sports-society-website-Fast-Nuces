@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+
+import cricketImg from "../assets/pexels-gergo-8331954-7625920.jpg";
+import footballImg from "../assets/pexels-jean-daniel-15964698.jpg";
+import basketballImg from "../assets/pexels-jean-daniel-14690053.jpg";
+import volleyballImg from "../assets/pexels-princeton-dsouza-2151536107-31723744.jpg";
+import badmintonImg from "../assets/pexels-princeton-dsouza-2151536107-31723741.jpg";
+import ttImg from "../assets/pexels-miguel-guerra-3200843-38761707.jpg";
+import esportsImg from "../assets/pexels-mateo-franciosi-283676800-39356403.jpg";
+import athleticsImg from "../assets/pexels-konrads-photo-32681168.jpg";
+import chessImg from "../assets/pexels-konrads-photo-32681154.jpg";
+
+const sportsWithRules = [
+  {
+    id: "cricket",
+    name: "Cricket T20 & Tape Ball",
+    category: "Outdoor",
+    tagline: "The Fastian XI",
+    captain: "Captain: Hamza Khan (CS '23)",
+    image: cricketImg,
+    badge: "MEN & WOMEN",
+    rules: [
+      { label: "Match Format", detail: "T20 Overs (Hard Ball) & 8-Over Tape Ball Blitz" },
+      { label: "Squad Size", detail: "11 Playing + 4 Substitutes (Total 15 Squad)" },
+      { label: "Match Duration", detail: "T20: 3 Hours | Tape Ball: 45 Minutes" },
+      { label: "Scoring & Ties", detail: "Standard ICC T20 rules. Tape ball allows 1 Super Over in case of tie." },
+      { label: "Fouls & Penalties", detail: "No-ball = Free Hit. Slow over-rate incurs fielder penalty." },
+      { label: "Equipment", detail: "Crimson Red Kit, Pads & Mandatory Helmet for pacers." },
+    ],
+  },
+  {
+    id: "football",
+    name: "Football & Futsal",
+    category: "Outdoor",
+    tagline: "Red Cyclones FC",
+    captain: "Captain: Shahzar Afridi (SE '23)",
+    image: footballImg,
+    badge: "MEN'S SQUAD",
+    rules: [
+      { label: "Match Format", detail: "11-a-side Turf Football & 5-a-side Floodlit Futsal" },
+      { label: "Squad Size", detail: "11 Playing + 7 Subs (Football) | 5 Playing + 5 Subs (Futsal)" },
+      { label: "Match Duration", detail: "Football: 2 x 35 Mins | Futsal: 2 x 20 Mins (Rolling Subs)" },
+      { label: "Scoring & Points", detail: "3 Pts for Win, 1 Pt for Draw. Direct knockouts go to Penalty Shootout." },
+      { label: "Card Penalties", detail: "Yellow Card: Warning. Red Card: Automatic ejection & 1-match ban." },
+      { label: "Equipment", detail: "Crimson Red Team Kit, Shin Guards & Molded Studs." },
+    ],
+  },
+  {
+    id: "basketball",
+    name: "Basketball",
+    category: "Indoor",
+    tagline: "FAST Hoopers",
+    captain: "Captain: Bilal Ahmad (EE '24)",
+    image: basketballImg,
+    badge: "MEN & WOMEN",
+    rules: [
+      { label: "Match Format", detail: "5v5 Full Court FIBA Format & 3v3 Half Court Blitz" },
+      { label: "Squad Size", detail: "5 Playing + 7 Substitutes (Total 12 Squad)" },
+      { label: "Match Duration", detail: "4 Quarters of 10 Minutes each (24-Sec Shot Clock)" },
+      { label: "Scoring Rules", detail: "Field Goal: 2 Pts, Beyond Arc: 3 Pts, Free Throw: 1 Pt." },
+      { label: "Fouls & Penalty", detail: "5 Team Fouls lead to Free Throws. 5 Personal Fouls = Disqualification." },
+      { label: "Equipment", detail: "Indoor Non-Marking Basketball Shoes & Cyclones Jersey." },
+    ],
+  },
+  {
+    id: "volleyball",
+    name: "Volleyball",
+    category: "Outdoor",
+    tagline: "Spikers Elite",
+    captain: "Captain: Usman Shinwari (CS '24)",
+    image: volleyballImg,
+    badge: "MEN'S SQUAD",
+    rules: [
+      { label: "Match Format", detail: "Best of 3 Sets (Group Stage) & Best of 5 Sets (Finals)" },
+      { label: "Squad Size", detail: "6 Playing + 6 Substitutes (Includes 1 Libero)" },
+      { label: "Match Duration", detail: "Rally Point System to 25 Pts (Deciding Set to 15 Pts, win by 2)" },
+      { label: "Scoring & Touch", detail: "Rally scoring. Maximum 3 touches per side before crossing net." },
+      { label: "Fouls & Net Touch", detail: "Net touch, stepping over center line, or double touch = point loss." },
+      { label: "Equipment", detail: "Knee Pads, Sports Shoes & Official FAST Uniform." },
+    ],
+  },
+  {
+    id: "badminton",
+    name: "Badminton",
+    category: "Indoor",
+    tagline: "Smash Masters",
+    captain: "Captain: Ayesha Gul (AI '24)",
+    image: badmintonImg,
+    badge: "MIXED DOUBLES",
+    rules: [
+      { label: "Match Format", detail: "Singles, Men's Doubles, Women's Doubles & Mixed Doubles" },
+      { label: "Squad Size", detail: "1 Player (Singles) | 2 Players (Doubles)" },
+      { label: "Match Duration", detail: "Best of 3 Games to 21 Points (Rally Point System)" },
+      { label: "Scoring & Cap", detail: "Point won on every rally. Cap at 30 points (29-29 next point wins)." },
+      { label: "Fault Rules", detail: "Shuttle touching net/outside boundary or racquet crossing net = fault." },
+      { label: "Equipment", detail: "Non-marking court shoes, Yonex feather shuttles provided." },
+    ],
+  },
+  {
+    id: "tabletennis",
+    name: "Table Tennis",
+    category: "Indoor",
+    tagline: "Spin Warriors",
+    captain: "Captain: Daniyal Shah (DS '25)",
+    image: ttImg,
+    badge: "SINGLES & DOUBLES",
+    rules: [
+      { label: "Match Format", detail: "Best of 5 Games (11 Points per Game) ITTF Standard" },
+      { label: "Squad Size", detail: "1 Player (Singles) | 2 Players (Doubles)" },
+      { label: "Match Duration", detail: "Approx 20-30 minutes per match" },
+      { label: "Scoring & Service", detail: "Serves alternate every 2 points. Deuce at 10-10 requires 2-pt lead." },
+      { label: "Service Rule", detail: "Service must be tossed vertically at least 16cm from open palm." },
+      { label: "Equipment", detail: "ITTF Approved Rubbers (Red/Black), Non-marking shoes." },
+    ],
+  },
+  {
+    id: "esports",
+    name: "E-Sports Gaming",
+    category: "Cyber",
+    tagline: "FAST Cyber Cyclones",
+    captain: "Captain: Rayan Khattak (Cyber '24)",
+    image: esportsImg,
+    badge: "CYBER DIVISION",
+    rules: [
+      { label: "Match Format", detail: "Valorant (5v5 Standard Tournament) & FIFA 26 (1v1 Solo)" },
+      { label: "Squad Size", detail: "5 Main + 1 Sub (Valorant) | 1 Player (FIFA)" },
+      { label: "Match Duration", detail: "Best of 3 Maps (Valorant) | 6-Min Halves (FIFA)" },
+      { label: "Scoring Rules", detail: "First to 13 rounds wins map in Valorant (OT MR3). Aggregate goals FIFA." },
+      { label: "Fair Play", detail: "Third-party hacks, macros, or toxic speech = instant DQ." },
+      { label: "Equipment", detail: "Tournament PCs provided. Personal Mouse & Headset permitted." },
+    ],
+  },
+  {
+    id: "athletics",
+    name: "Athletics & Track",
+    category: "Outdoor",
+    tagline: "Peshawar Sprinters",
+    captain: "Captain: Zubair Malik (CS '23)",
+    image: athleticsImg,
+    badge: "TRACK & FIELD",
+    rules: [
+      { label: "Match Format", detail: "100m Sprint, 400m Race, 4x100m Relay & Shot Put" },
+      { label: "Squad Size", detail: "Individual Entries & 4-Runner Relay Teams" },
+      { label: "Scoring Method", detail: "Top 3 timings in heats qualify for Grand Final." },
+      { label: "False Start", detail: "False Start results in immediate disqualification from sprint." },
+      { label: "Equipment", detail: "Running Spikes / Athletics Shoes & Official Bib Numbers." },
+    ],
+  },
+  {
+    id: "chess",
+    name: "Chess & Mind Sports",
+    category: "Mind Sports",
+    tagline: "Grandmasters Society",
+    captain: "Captain: Sara Paracha (AI '25)",
+    image: chessImg,
+    badge: "MIND SPORTS",
+    rules: [
+      { label: "Match Format", detail: "5-Round Swiss Tournament (FIDE Rapid Format)" },
+      { label: "Time Control", detail: "10 Minutes + 5 Seconds Increment per move (10+5)" },
+      { label: "Scoring", detail: "1 Pt for Win, 0.5 for Draw, 0 for Loss. Buchholz tie-breaks." },
+      { label: "Disciplinary", detail: "Touch-Move Rule enforced strictly. 2 Illegal Moves = loss of game." },
+      { label: "Equipment", detail: "Digital DGT Chess Clocks & FIDE Weighted Boards provided." },
+    ],
+  },
+];
+---
+
+<Layout title="Sports Cards & Tournament Rules | FAST NUCES Peshawar Sports Society">
+  <Navbar />
+  <main class="pt-28 pb-24 bg-black text-white">
+    
+    <!-- Hero Header -->
+    <div class="relative py-16 bg-gradient-to-b from-red-950/60 via-zinc-950 to-black border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="px-4 py-1.5 bg-red-600 text-white font-bebas text-sm tracking-widest uppercase rounded-full shadow-lg">
+          ATHLETIC DISCIPLINES & RULES
+        </span>
+        <h1 class="font-bebas text-6xl sm:text-8xl tracking-tight text-white mt-4">
+          SPORTS CARDS & <span class="text-red-600">MATCH RULES</span>
+        </h1>
+        <p class="max-w-3xl mx-auto text-zinc-300 text-base sm:text-lg mt-4">
+          Detailed sports cards, team captains, squad limits, match durations, and official tournament regulations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sports List Container -->
+    <div id="rules" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      
+      {sportsWithRules.map((sport) => (
+        <div class="p-6 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800/80 hover:border-red-600/50 transition-all flex flex-col lg:flex-row gap-8 items-start">
+          
+          <!-- Image & Captain Details -->
+          <div class="lg:w-1/3 w-full space-y-4">
+            <div class="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden border border-zinc-800">
+              <Image
+                src={sport.image}
+                alt={sport.name}
+                class="w-full h-full object-cover filter brightness-90"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 bg-red-600/90 text-white rounded-full text-[10px] font-extrabold uppercase tracking-widest">
+                {sport.badge}
+              </span>
+              <span class="absolute top-3 right-3 px-3 py-1 bg-black/80 text-zinc-300 border border-zinc-700 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                {sport.category}
+              </span>
+            </div>
+
+            <div>
+              <h3 class="font-bebas text-4xl text-white tracking-wide">{sport.name}</h3>
+              <p class="text-xs font-bold text-red-500 uppercase tracking-widest mt-1">{sport.tagline}</p>
+              <p class="text-xs text-zinc-400 font-mono mt-1">{sport.captain}</p>
+            </div>
+          </div>
+
+          <!-- Official Rules Grid -->
+          <div class="lg:w-2/3 w-full space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-red-400 font-mono pb-2 border-b border-zinc-800">
+              Official Match Rules & Guidelines:
+            </h4>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {sport.rules.map((rule) => (
+                <div class="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800/80">
+                  <span class="text-xs font-bold uppercase tracking-wider text-red-400 block font-mono mb-1">
+                    {rule.label}
+                  </span>
+                  <p class="text-xs text-zinc-300 leading-relaxed">
+                    {rule.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </main>
+  <Footer />
+</Layout>

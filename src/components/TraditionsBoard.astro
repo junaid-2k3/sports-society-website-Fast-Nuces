@@ -1,0 +1,127 @@
+---
+const traditions = [
+  {
+    title: "RED OUT GAME DAYS",
+    desc: "Every student section member wears crimson red. The stadium turns into a sea of red to intimidate visiting opponents.",
+    icon: "🔴",
+  },
+  {
+    title: "THE CYCLONE ROAR",
+    desc: "Our signature stadium chant performed at the start of every 2nd half. 1,000+ FASTians shouting in unison.",
+    icon: "⚡",
+  },
+  {
+    title: "SPORTS GALA TORCH RELAY",
+    desc: "The annual opening ceremony where student captains run the torch around Jamrud Road campus ground.",
+    icon: "🔥",
+  },
+  {
+    title: "CHAMPIONS WALL OF FAME",
+    desc: "Permanent brass plaques honoring student athletes who win national and provincial university gold medals.",
+    icon: "🏆",
+  },
+];
+
+const boardMembers = [
+  {
+    name: "Muhammad Saad",
+    role: "Society President",
+    dept: "Computer Science '23",
+    quote: "Our goal is to build the most passionate student section in the province.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Zarak Khan",
+    role: "Vice President",
+    dept: "Software Engineering '23",
+    quote: "Sports at FAST is about brotherhood, discipline, and absolute energy.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Mahnoor Afridi",
+    role: "General Secretary",
+    dept: "Data Science '24",
+    quote: "Creating inclusive opportunities for every student to compete and shine.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+  {
+    name: "Hamza Paracha",
+    role: "Head of Sports Operations",
+    dept: "Electrical Eng '24",
+    quote: "Managing tournaments with professional standards and seamless logistics.",
+    avatar: "/logos/sports_society_logo.png",
+  },
+];
+---
+
+<section id="traditions" class="py-24 bg-black relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section 1: Traditions -->
+    <div class="mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-400">Campus Identity</span>
+        </div>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-tight text-white">
+          FASTIAN <span class="text-red-600">TRADITIONS</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          The rituals, chants, and honors that define what it means to be part of the Cyclones movement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {traditions.map((t) => (
+          <div class="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-red-600/60 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-4xl mb-4">{t.icon}</div>
+            <h3 class="font-bebas text-2xl text-white tracking-wide mb-2">{t.title}</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 2: Executive Board -->
+    <div>
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-400">Leadership</span>
+        </div>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-tight text-white">
+          EXECUTIVE <span class="text-red-600">BOARD</span>
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Meet the dedicated students leading the FAST NUCES Peshawar Sports Society operations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {boardMembers.map((m) => (
+          <div class="p-6 rounded-3xl bg-zinc-900/80 border border-zinc-800 flex flex-col items-center text-center group hover:border-red-600/50 transition-all">
+            <div class="w-24 h-24 rounded-full bg-black p-2 border-2 border-red-600/60 mb-4 shadow-xl flex items-center justify-center">
+              <img src={m.avatar} alt={m.name} class="w-full h-full object-contain filter drop-shadow" />
+            </div>
+            
+            <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-red-500 transition-colors leading-none">
+              {m.name}
+            </h3>
+            
+            <span class="text-xs font-extrabold uppercase tracking-widest text-red-400 mt-1 block">
+              {m.role}
+            </span>
+            
+            <span class="text-[11px] text-zinc-500 font-mono mt-0.5 mb-4 block">
+              {m.dept}
+            </span>
+
+            <p class="text-xs text-zinc-400 italic bg-black/50 p-3 rounded-xl border border-zinc-800/80 w-full mt-auto">
+              "{m.quote}"
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
