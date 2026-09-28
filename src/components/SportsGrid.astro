@@ -1,89 +1,35 @@
 ---
 import { Image } from "astro:assets";
 
-import cricketImg from "../assets/pexels-gergo-8331954-7625920.jpg";
-import footballImg from "../assets/pexels-jean-daniel-15964698.jpg";
-import basketballImg from "../assets/pexels-jean-daniel-14690053.jpg";
-import volleyballImg from "../assets/pexels-princeton-dsouza-2151536107-31723744.jpg";
-import badmintonImg from "../assets/pexels-princeton-dsouza-2151536107-31723741.jpg";
-import ttImg from "../assets/pexels-miguel-guerra-3200843-38761707.jpg";
-import esportsImg from "../assets/pexels-mateo-franciosi-283676800-39356403.jpg";
-import athleticsImg from "../assets/pexels-konrads-photo-32681168.jpg";
-import chessImg from "../assets/pexels-konrads-photo-32681154.jpg";
+import cricketImg from "../assets/sports_posters/criceket.jpg";
+import futsalImg from "../assets/sports_posters/futsal.jpg";
+import badmintonImg from "../assets/sports_posters/badminton.jpg";
+import ttImg from "../assets/sports_posters/table_tennis.jpg";
+import volleyballImg from "../assets/sports_posters/volleyball.jpg";
+
+import unoImg from "../assets/sports_posters/uno.jpg";
+import mafiaImg from "../assets/sports_posters/mafia.jpg";
+import jengaImg from "../assets/sports_posters/jenga.jpg";
+import dartsImg from "../assets/sports_posters/darts.jpg";
+import dodgeballImg from "../assets/sports_posters/dodgeball.jpg";
+import sequenceImg from "../assets/sports_posters/sequence.jpg";
+import musicalChairsImg from "../assets/sports_posters/musical_chairs.jpg";
+import carromImg from "../assets/sports_posters/carrom.jpg";
 
 const sports = [
-  {
-    name: "Cricket",
-    tagline: "The Fastian XI",
-    teamCaptain: "Captain: Hamza Khan (CS '23)",
-    achievements: "FAST Gala Champions",
-    image: cricketImg,
-    badge: "MEN & WOMEN",
-  },
-  {
-    name: "Football",
-    tagline: "Red Cyclones FC",
-    teamCaptain: "Captain: Shahzar Afridi (SE '23)",
-    achievements: "Inter-FAST Gold Medalists",
-    image: footballImg,
-    badge: "MEN's SQUAD",
-  },
-  {
-    name: "Basketball",
-    tagline: "FAST Hoopers",
-    teamCaptain: "Captain: Bilal Ahmad (EE '24)",
-    achievements: "Campus Cup Winners",
-    image: basketballImg,
-    badge: "MEN & WOMEN",
-  },
-  {
-    name: "Volleyball",
-    tagline: "Spikers Elite",
-    teamCaptain: "Captain: Usman Shinwari (CS '24)",
-    achievements: "Gala Champions 2025",
-    image: volleyballImg,
-    badge: "MEN'S SQUAD",
-  },
-  {
-    name: "Badminton",
-    tagline: "Smash Masters",
-    teamCaptain: "Captain: Ayesha Gul (AI '24)",
-    achievements: "Doubles Gold Champions",
-    image: badmintonImg,
-    badge: "MIXED DOUBLES",
-  },
-  {
-    name: "Table Tennis",
-    tagline: "Spin Warriors",
-    teamCaptain: "Captain: Daniyal Shah (DS '25)",
-    achievements: "Campus Singles Champions",
-    image: ttImg,
-    badge: "SINGLES & DOUBLES",
-  },
-  {
-    name: "E-Sports Gaming",
-    tagline: "FAST Cyber Cyclones",
-    teamCaptain: "Captain: Rayan Khattak (Cyber '24)",
-    achievements: "Valorant & FIFA Trophy",
-    image: esportsImg,
-    badge: "CYBER DIVISION",
-  },
-  {
-    name: "Athletics & Track",
-    tagline: "Peshawar Sprinters",
-    teamCaptain: "Captain: Zubair Malik (CS '23)",
-    achievements: "100m & 400m Gold Winners",
-    image: athleticsImg,
-    badge: "TRACK & FIELD",
-  },
-  {
-    name: "Chess & Mind Sports",
-    tagline: "Grandmasters Society",
-    teamCaptain: "Captain: Sara Paracha (AI '25)",
-    achievements: "FAST Rapid Champions",
-    image: chessImg,
-    badge: "MIND SPORTS",
-  },
+  { name: "Cricket", tagline: "The Fastian XI", category: "Main Sport", image: cricketImg, badge: "MALE" },
+  { name: "Futsal", tagline: "Red Cyclones Futsal", category: "Main Sport", image: futsalImg, badge: "MALE" },
+  { name: "Badminton", tagline: "Smash Masters", category: "Main Sport", image: badmintonImg, badge: "MALE / FEMALE" },
+  { name: "Table Tennis", tagline: "Spin Warriors", category: "Main Sport", image: ttImg, badge: "MALE / FEMALE" },
+  { name: "Volleyball", tagline: "Spikers Elite", category: "Main Sport", image: volleyballImg, badge: "MALE" },
+  { name: "UNO", tagline: "Wild Card Showdown", category: "MORE GAMES", image: unoImg, badge: "MALE / FEMALE" },
+  { name: "Mafia Wars", tagline: "Town of Deceit", category: "MORE GAMES", image: mafiaImg, badge: "MALE / FEMALE" },
+  { name: "Jenga", tagline: "Tower of Tension", category: "MORE GAMES", image: jengaImg, badge: "MALE / FEMALE" },
+  { name: "Darts", tagline: "Bullseye Master", category: "MORE GAMES", image: dartsImg, badge: "MALE / FEMALE" },
+  { name: "Dodgeball", tagline: "Duck & Dodge", category: "MORE GAMES", image: dodgeballImg, badge: "MALE" },
+  { name: "Sequence", tagline: "5-in-a-Row Strategy", category: "MORE GAMES", image: sequenceImg, badge: "MALE / FEMALE" },
+  { name: "Musical Chairs", tagline: "Last Chair Standing", category: "MORE GAMES", image: musicalChairsImg, badge: "MALE / FEMALE" },
+  { name: "Carrom", tagline: "Striker Champions", category: "MORE GAMES", image: carromImg, badge: "MALE / FEMALE" },
 ];
 ---
 
@@ -93,23 +39,25 @@ const sports = [
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-3">
-        <span class="text-xs font-bold uppercase tracking-widest text-red-400">Athletic Disciplines</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-red-400">Sports Week • 5 – 8 Oct 2026</span>
       </div>
       <h2 class="font-bebas text-5xl sm:text-7xl tracking-tight text-white">
         SPORTS & <span class="text-red-600">DISCIPLINE CARDS</span>
       </h2>
       <p class="text-zinc-400 text-base sm:text-lg">
-        Explore our official FAST NUCES Peshawar athletic disciplines, team captains, and tournament rules.
+        Explore the 13 sports disciplines of FAST NUCES Peshawar Sports Week. Click any card to view rules or register directly!
       </p>
     </div>
 
     <!-- Sports Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {sports.map((sport) => (
-        <div class="group relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/50 flex flex-col">
+        <div 
+          class="group relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/50 flex flex-col justify-between"
+        >
           
           <!-- Image Container -->
-          <div class="relative h-64 w-full overflow-hidden">
+          <div class="relative h-60 w-full overflow-hidden">
             <Image
               src={sport.image}
               alt={sport.name}
@@ -119,6 +67,10 @@ const sports = [
             
             <span class="absolute top-4 left-4 px-3 py-1 bg-red-600/90 backdrop-blur-md text-white rounded-full text-[10px] font-extrabold uppercase tracking-widest">
               {sport.badge}
+            </span>
+
+            <span class="absolute top-4 right-4 px-3 py-1 bg-black/80 text-zinc-300 border border-zinc-700 rounded-full text-[10px] font-bold uppercase tracking-widest">
+              {sport.category}
             </span>
           </div>
 
@@ -131,24 +83,28 @@ const sports = [
                 </h3>
                 <span class="text-xs font-bold text-red-400 uppercase tracking-widest">{sport.tagline}</span>
               </div>
-              
-              <p class="text-xs font-medium text-zinc-400 mb-4">
-                🏆 {sport.achievements}
-              </p>
-              
-              <p class="text-xs text-zinc-500 font-mono">
-                {sport.teamCaptain}
-              </p>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
               <a
-                href="/sports"
-                class="text-xs font-extrabold uppercase tracking-widest text-zinc-300 group-hover:text-red-500 transition-colors inline-flex items-center gap-1"
+                href="/sports#rules"
+                class="text-xs font-extrabold uppercase tracking-wider text-zinc-300 hover:text-white transition-colors flex items-center gap-1"
               >
-                <span>Read Sports Rules & Format</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span>Rules</span>
+                <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+
+              <a
+                href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-xl transition-all shadow-md shadow-red-950/60 flex items-center gap-1.5"
+              >
+                <span>Register Now</span>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             </div>
@@ -156,6 +112,20 @@ const sports = [
 
         </div>
       ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm tracking-widest uppercase rounded-full shadow-lg transition-all hover:scale-105 shadow-red-950/80"
+      >
+        <span>Register Now For Sports Week</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
     </div>
 
   </div>

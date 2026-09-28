@@ -1,171 +1,43 @@
 ---
-const upcomingMatches = [
-  {
-    day: "DAY 1",
-    sport: "Cricket T20 Opener",
-    tournament: "FAST Annual Sports Mega Gala - Day 1",
-    homeTeam: "CS Cyclones",
-    homeLogo: "/logos/sports_society_logo.png",
-    awayTeam: "SE Strikers",
-    awayLogo: "/logos/Fast-University-Logo.png",
-    date: "DAY 1 • 09:30 AM",
-    time: "09:30 AM PST",
-    venue: "FAST Main Cricket Ground",
-    status: "OPENING MATCH",
-    featured: true,
-  },
-  {
-    day: "DAY 2",
-    sport: "Futsal Championship",
-    tournament: "FAST Annual Sports Mega Gala - Day 2",
-    homeTeam: "EE Thunder",
-    homeLogo: "/logos/sports_society_logo.png",
-    awayTeam: "DS Dynamos",
-    awayLogo: "/logos/Fast-University-Logo.png",
-    date: "DAY 2 • 02:00 PM",
-    time: "02:00 PM PST",
-    venue: "FAST Main Sports Turf",
-    status: "HIGH OCTANE",
-    featured: false,
-  },
-  {
-    day: "DAY 3",
-    sport: "Basketball Semi-Final",
-    tournament: "FAST Annual Sports Mega Gala - Day 3",
-    homeTeam: "AI Gladiators",
-    homeLogo: "/logos/sports_society_logo.png",
-    awayTeam: "Cyber Titans",
-    awayLogo: "/logos/Fast-University-Logo.png",
-    date: "DAY 3 • 04:30 PM",
-    time: "04:30 PM PST",
-    venue: "Indoor Sports Complex, FAST",
-    status: "SEMI-FINAL",
-    featured: false,
-  },
-  {
-    day: "DAY 4",
-    sport: "Cricket & Futsal Grand Finals",
-    tournament: "FAST Annual Sports Mega Gala - Day 4",
-    homeTeam: "Championship Finalists",
-    homeLogo: "/logos/sports_society_logo.png",
-    awayTeam: "Championship Finalists",
-    awayLogo: "/logos/Fast-University-Logo.png",
-    date: "DAY 4 • 03:00 PM",
-    time: "03:00 PM PST",
-    venue: "Main Athletic Arena & Ground",
-    status: "GRAND FINAL",
-    featured: true,
-  },
-];
 ---
 
-<section id="fixtures" class="py-24 bg-zinc-950 border-t border-b border-zinc-800 relative">
+<section id="fixtures" class="py-20 bg-zinc-950 border-t border-b border-zinc-800 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-red-400">4-Day Mega Event</span>
-        </div>
-        <h2 class="font-bebas text-5xl sm:text-7xl tracking-tight text-white">
-          FEATURED <span class="text-red-600">FIXTURES</span>
-        </h2>
-        <p class="text-zinc-400 text-base sm:text-lg max-w-xl">
-          Check out key match fixtures across the 4 days of the FAST NUCES Peshawar Sports Mega Gala.
-        </p>
+    <div class="p-8 sm:p-12 rounded-3xl bg-black border border-zinc-800 shadow-2xl relative overflow-hidden text-center max-w-4xl mx-auto">
+      <div class="absolute -top-20 -left-20 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 mb-4">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-red-400">Sports Week • 5 – 8 October 2026</span>
       </div>
 
-      <a
-        href="/fixtures"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-sm tracking-wider uppercase rounded-full border border-zinc-700 transition-all w-fit"
-      >
-        <span>Full 4-Day Schedule</span>
-        <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
-    </div>
+      <h2 class="font-bebas text-4xl sm:text-6xl tracking-tight text-white mb-3">
+        MATCH FIXTURES <span class="text-red-600">WILL BE UPDATED SOON</span>
+      </h2>
 
-    <!-- Matches Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {upcomingMatches.map((match) => (
-        <div
-          class={`rounded-3xl p-6 sm:p-8 relative overflow-hidden transition-all duration-300 border ${
-            match.featured
-              ? "bg-gradient-to-br from-zinc-900 via-black to-red-950/40 border-red-600/70 shadow-2xl shadow-red-950/60"
-              : "bg-zinc-900/60 border-zinc-800 hover:border-zinc-700"
-          }`}
+      <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto mb-8 font-medium">
+        We haven't finalized the official fixtures and match brackets yet for Sports Week (5 – 8 Oct 2026). Check back soon for full schedules and court assignments.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/fixtures"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs tracking-widest uppercase rounded-full transition-all hover:scale-105 shadow-lg shadow-red-950/50"
         >
-          <!-- Match Header Info -->
-          <div class="flex items-center justify-between gap-4 pb-6 border-b border-zinc-800">
-            <div>
-              <span class="text-xs font-extrabold uppercase tracking-widest text-red-500 block">
-                {match.sport}
-              </span>
-              <span class="text-xs text-zinc-400 font-medium">
-                {match.tournament}
-              </span>
-            </div>
-            <span class="px-3 py-1 bg-red-600 text-white font-bebas text-sm tracking-widest rounded-full uppercase">
-              {match.status}
-            </span>
-          </div>
-
-          <!-- Teams Clashing Section -->
-          <div class="py-8 flex items-center justify-between gap-4 text-center">
-            
-            <!-- Home Team -->
-            <div class="flex-1 flex flex-col items-center">
-              <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-black/80 p-3 border border-red-900/50 flex items-center justify-center mb-3 shadow-lg">
-                <img src={match.homeLogo} alt={match.homeTeam} class="max-h-full max-w-full object-contain filter drop-shadow" />
-              </div>
-              <h4 class="font-bebas text-xl sm:text-2xl text-white tracking-wider leading-none">
-                {match.homeTeam}
-              </h4>
-              <span class="text-[11px] uppercase font-bold text-red-400 tracking-wider">TEAM A</span>
-            </div>
-
-            <!-- VS Badge -->
-            <div class="flex flex-col items-center px-2">
-              <span class="font-bebas text-3xl sm:text-4xl text-red-600 tracking-tighter">VS</span>
-              <span class="text-[10px] font-extrabold uppercase text-zinc-500 tracking-widest mt-1">{match.day}</span>
-            </div>
-
-            <!-- Away Team -->
-            <div class="flex-1 flex flex-col items-center">
-              <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-black/80 p-3 border border-zinc-800 flex items-center justify-center mb-3 shadow-lg">
-                <img src={match.awayLogo} alt={match.awayTeam} class="max-h-full max-w-full object-contain filter drop-shadow" />
-              </div>
-              <h4 class="font-bebas text-xl sm:text-2xl text-zinc-200 tracking-wider leading-none">
-                {match.awayTeam}
-              </h4>
-              <span class="text-[11px] uppercase font-bold text-zinc-400 tracking-wider">TEAM B</span>
-            </div>
-
-          </div>
-
-          <!-- Match Footer Details -->
-          <div class="pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="text-center sm:text-left">
-              <div class="text-sm font-bold text-white tracking-wide">
-                📅 {match.date}
-              </div>
-              <div class="text-xs text-zinc-400 mt-0.5">
-                📍 {match.venue}
-              </div>
-            </div>
-
-            <a
-              href="/fixtures"
-              class="w-full sm:w-auto px-6 py-2.5 bg-red-950/80 hover:bg-red-900 border border-red-800/60 text-white font-bold text-xs tracking-widest uppercase rounded-full text-center transition-all hover:scale-105"
-            >
-              View Event Schedule
-            </a>
-          </div>
-
-        </div>
-      ))}
+          <span>Check Fixtures Updates</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+        <a
+          href="/sports"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold text-xs tracking-widest uppercase rounded-full border border-zinc-700 transition-all"
+        >
+          <span>Explore Sports & Rules</span>
+        </a>
+      </div>
     </div>
 
   </div>

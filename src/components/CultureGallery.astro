@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
 
-import g1 from "../assets/pexels-edwardeyer-10611956.jpg";
-import g2 from "../assets/pexels-hobiphotography-36398789.jpg";
-import g3 from "../assets/pexels-bennycool-26238648.jpg";
-import g4 from "../assets/pexels-celio-junior-106557696-38233888.jpg";
-import g5 from "../assets/pexels-chuck-2834917.jpg";
-import g6 from "../assets/pexels-cottonbro-6777167.jpg";
+import g1 from "../assets/home poster.jpg";
+import g2 from "../assets/sports_posters/criceket.jpg";
+import g3 from "../assets/sports_posters/futsal.jpg";
+import g4 from "../assets/sports_posters/volleyball.jpg";
+import g5 from "../assets/sports_posters/badminton.jpg";
+import g6 from "../assets/sports_posters/table_tennis.jpg";
 
 const galleryItems = [
   { img: g1, title: "The Red Wave Crowd", caption: "FAST Annual Sports Gala 2025" },
@@ -36,10 +36,10 @@ const galleryItems = [
       </div>
 
       <a
-        href="/gallery"
+        href="/sports"
         class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold text-sm tracking-wider uppercase rounded-full shadow-lg shadow-red-950/50 transition-all w-fit"
       >
-        <span>View Full Photo Vault</span>
+        <span>Explore All Sports</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
@@ -48,7 +48,7 @@ const galleryItems = [
 
     <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {galleryItems.map((item, index) => (
+      {galleryItems.map((item) => (
         <div class="group relative rounded-3xl overflow-hidden bg-zinc-900 h-80 border border-zinc-800 hover:border-red-600/60 transition-all duration-500 shadow-xl">
           <Image
             src={item.img}

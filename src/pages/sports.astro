@@ -4,172 +4,274 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 
-import cricketImg from "../assets/pexels-gergo-8331954-7625920.jpg";
-import footballImg from "../assets/pexels-jean-daniel-15964698.jpg";
-import basketballImg from "../assets/pexels-jean-daniel-14690053.jpg";
-import volleyballImg from "../assets/pexels-princeton-dsouza-2151536107-31723744.jpg";
-import badmintonImg from "../assets/pexels-princeton-dsouza-2151536107-31723741.jpg";
-import ttImg from "../assets/pexels-miguel-guerra-3200843-38761707.jpg";
-import esportsImg from "../assets/pexels-mateo-franciosi-283676800-39356403.jpg";
-import athleticsImg from "../assets/pexels-konrads-photo-32681168.jpg";
-import chessImg from "../assets/pexels-konrads-photo-32681154.jpg";
+import cricketImg from "../assets/sports_posters/criceket.jpg";
+import futsalImg from "../assets/sports_posters/futsal.jpg";
+import badmintonImg from "../assets/sports_posters/badminton.jpg";
+import ttImg from "../assets/sports_posters/table_tennis.jpg";
+import volleyballImg from "../assets/sports_posters/volleyball.jpg";
 
-const sportsWithRules = [
+import unoImg from "../assets/sports_posters/uno.jpg";
+import mafiaImg from "../assets/sports_posters/mafia.jpg";
+import jengaImg from "../assets/sports_posters/jenga.jpg";
+import dartsImg from "../assets/sports_posters/darts.jpg";
+import dodgeballImg from "../assets/sports_posters/dodgeball.jpg";
+import sequenceImg from "../assets/sports_posters/sequence.jpg";
+import musicalChairsImg from "../assets/sports_posters/musical_chairs.jpg";
+import carromImg from "../assets/sports_posters/carrom.jpg";
+
+const sportsData = [
   {
     id: "cricket",
-    name: "Cricket T20 & Tape Ball",
-    category: "Outdoor",
+    name: "Cricket",
+    category: "Main Sport",
+    subCategory: "Outdoor",
     tagline: "The Fastian XI",
-    captain: "Captain: Hamza Khan (CS '23)",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "9 Players (8 playing, 1 substitute)",
+    registrationFee: "5,500 PKR",
     image: cricketImg,
-    badge: "MEN & WOMEN",
+    badge: "MALE",
     rules: [
-      { label: "Match Format", detail: "T20 Overs (Hard Ball) & 8-Over Tape Ball Blitz" },
-      { label: "Squad Size", detail: "11 Playing + 4 Substitutes (Total 15 Squad)" },
-      { label: "Match Duration", detail: "T20: 3 Hours | Tape Ball: 45 Minutes" },
-      { label: "Scoring & Ties", detail: "Standard ICC T20 rules. Tape ball allows 1 Super Over in case of tie." },
-      { label: "Fouls & Penalties", detail: "No-ball = Free Hit. Slow over-rate incurs fielder penalty." },
-      { label: "Equipment", detail: "Crimson Red Kit, Pads & Mandatory Helmet for pacers." },
+      { label: "Squad & Team", detail: "9 Players total per squad (8 playing, 1 substitute). List submitted before tournament." },
+      { label: "Ball & Overs", detail: "Played with Tennis Ball. 5 overs per side in group stages; 6 to 8 overs in semifinals/finals." },
+      { label: "Bowler Limits", detail: "Max 2 overs per bowler in a 5-over match." },
+      { label: "Bowling Action", detail: "Proper bowling action required; direct underarm bowling is not allowed." },
+      { label: "Bouncers & Wides", detail: "Bouncers above shoulder height called wide. Wide ball = +1 run and extra delivery." },
+      { label: "Ties & Super Over", detail: "Tie decided by Super Over. If still tied, team with most boundaries wins." },
     ],
   },
   {
-    id: "football",
-    name: "Football & Futsal",
-    category: "Outdoor",
-    tagline: "Red Cyclones FC",
-    captain: "Captain: Shahzar Afridi (SE '23)",
-    image: footballImg,
-    badge: "MEN'S SQUAD",
+    id: "futsal",
+    name: "Futsal",
+    category: "Main Sport",
+    subCategory: "Outdoor Turf",
+    tagline: "Red Cyclones Futsal",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "8 Players (5 playing, 3 substitutes)",
+    registrationFee: "4,500 PKR",
+    image: futsalImg,
+    badge: "MALE",
     rules: [
-      { label: "Match Format", detail: "11-a-side Turf Football & 5-a-side Floodlit Futsal" },
-      { label: "Squad Size", detail: "11 Playing + 7 Subs (Football) | 5 Playing + 5 Subs (Futsal)" },
-      { label: "Match Duration", detail: "Football: 2 x 35 Mins | Futsal: 2 x 20 Mins (Rolling Subs)" },
-      { label: "Scoring & Points", detail: "3 Pts for Win, 1 Pt for Draw. Direct knockouts go to Penalty Shootout." },
-      { label: "Card Penalties", detail: "Yellow Card: Warning. Red Card: Automatic ejection & 1-match ban." },
-      { label: "Equipment", detail: "Crimson Red Team Kit, Shin Guards & Molded Studs." },
-    ],
-  },
-  {
-    id: "basketball",
-    name: "Basketball",
-    category: "Indoor",
-    tagline: "FAST Hoopers",
-    captain: "Captain: Bilal Ahmad (EE '24)",
-    image: basketballImg,
-    badge: "MEN & WOMEN",
-    rules: [
-      { label: "Match Format", detail: "5v5 Full Court FIBA Format & 3v3 Half Court Blitz" },
-      { label: "Squad Size", detail: "5 Playing + 7 Substitutes (Total 12 Squad)" },
-      { label: "Match Duration", detail: "4 Quarters of 10 Minutes each (24-Sec Shot Clock)" },
-      { label: "Scoring Rules", detail: "Field Goal: 2 Pts, Beyond Arc: 3 Pts, Free Throw: 1 Pt." },
-      { label: "Fouls & Penalty", detail: "5 Team Fouls lead to Free Throws. 5 Personal Fouls = Disqualification." },
-      { label: "Equipment", detail: "Indoor Non-Marking Basketball Shoes & Cyclones Jersey." },
-    ],
-  },
-  {
-    id: "volleyball",
-    name: "Volleyball",
-    category: "Outdoor",
-    tagline: "Spikers Elite",
-    captain: "Captain: Usman Shinwari (CS '24)",
-    image: volleyballImg,
-    badge: "MEN'S SQUAD",
-    rules: [
-      { label: "Match Format", detail: "Best of 3 Sets (Group Stage) & Best of 5 Sets (Finals)" },
-      { label: "Squad Size", detail: "6 Playing + 6 Substitutes (Includes 1 Libero)" },
-      { label: "Match Duration", detail: "Rally Point System to 25 Pts (Deciding Set to 15 Pts, win by 2)" },
-      { label: "Scoring & Touch", detail: "Rally scoring. Maximum 3 touches per side before crossing net." },
-      { label: "Fouls & Net Touch", detail: "Net touch, stepping over center line, or double touch = point loss." },
-      { label: "Equipment", detail: "Knee Pads, Sports Shoes & Official FAST Uniform." },
+      { label: "Match Duration", detail: "2 halves of 15 minutes (stopped clock). Half-time break of 5 minutes." },
+      { label: "Timeouts & Subs", detail: "1 timeout per team per half (1 min). Unlimited rolling substitutions allowed." },
+      { label: "Extra Time & Tiebreaker", detail: "Extra Time: 2 halves of 3 mins. Tiebreaker: Penalty shootout (5 kicks each, then sudden death)." },
+      { label: "Kick-Ins & Restart", detail: "Kick-ins instead of throw-ins (within 4 seconds). Goalkeeper clearance by throw only." },
+      { label: "Goalkeeper Restrictions", detail: "Touches ball once per possession, releases within 4s, no hands on teammate back-pass." },
+      { label: "Accumulated Fouls", detail: "After 5 accumulated fouls, opponent receives direct free kick from 10m mark." },
     ],
   },
   {
     id: "badminton",
     name: "Badminton",
-    category: "Indoor",
+    category: "Main Sport",
+    subCategory: "Indoor Court",
     tagline: "Smash Masters",
-    captain: "Captain: Ayesha Gul (AI '24)",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "Single / Double",
+    registrationFee: "Singles: 500 PKR (Male) / 300 PKR (Female) | Doubles: 1,000 PKR (Male) / 600 PKR (Female)",
     image: badmintonImg,
-    badge: "MIXED DOUBLES",
+    badge: "MALE / FEMALE",
     rules: [
-      { label: "Match Format", detail: "Singles, Men's Doubles, Women's Doubles & Mixed Doubles" },
-      { label: "Squad Size", detail: "1 Player (Singles) | 2 Players (Doubles)" },
-      { label: "Match Duration", detail: "Best of 3 Games to 21 Points (Rally Point System)" },
-      { label: "Scoring & Cap", detail: "Point won on every rally. Cap at 30 points (29-29 next point wins)." },
-      { label: "Fault Rules", detail: "Shuttle touching net/outside boundary or racquet crossing net = fault." },
-      { label: "Equipment", detail: "Non-marking court shoes, Yonex feather shuttles provided." },
+      { label: "Match Format", detail: "Qualifying & Simple matches are single set to 21 points (knockout)." },
+      { label: "Semis & Finals", detail: "Semi-Finals and Finals played as Best of 3 sets to 21 points." },
+      { label: "Set Cap & Extension", detail: "At 20-all, side gaining 2-point lead wins. Cap at 30 points (29-29 next point wins)." },
+      { label: "Side Switch", detail: "Players switch sides after each set (and at 11 points in a third deciding set)." },
+      { label: "Equipment", detail: "Shuttlecocks provided by organizers. Players must use standard badminton rackets." },
     ],
   },
   {
     id: "tabletennis",
     name: "Table Tennis",
-    category: "Indoor",
+    category: "Main Sport",
+    subCategory: "Indoor",
     tagline: "Spin Warriors",
-    captain: "Captain: Daniyal Shah (DS '25)",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "Single",
+    registrationFee: "Singles: 600 PKR",
     image: ttImg,
-    badge: "SINGLES & DOUBLES",
+    badge: "MALE / FEMALE",
     rules: [
-      { label: "Match Format", detail: "Best of 5 Games (11 Points per Game) ITTF Standard" },
-      { label: "Squad Size", detail: "1 Player (Singles) | 2 Players (Doubles)" },
-      { label: "Match Duration", detail: "Approx 20-30 minutes per match" },
-      { label: "Scoring & Service", detail: "Serves alternate every 2 points. Deuce at 10-10 requires 2-pt lead." },
-      { label: "Service Rule", detail: "Service must be tossed vertically at least 16cm from open palm." },
-      { label: "Equipment", detail: "ITTF Approved Rubbers (Red/Black), Non-marking shoes." },
+      { label: "Match Format", detail: "Follows ITTF rules. Best of 3 games before semi-finals; Best of 5 games from semi-finals onwards." },
+      { label: "Game Points", detail: "11 points per game. Player must win by at least 2 points. Switch sides after each game." },
+      { label: "Service Rule", detail: "Service behind end line and above table surface. Service toss vertical at least 16cm." },
+      { label: "Faults & Fouls", detail: "Touching table with free hand or moving table during rally loses point." },
+      { label: "Conduct & Reporting", detail: "Report 15 minutes prior. No outside coaching allowed during matches." },
     ],
   },
   {
-    id: "esports",
-    name: "E-Sports Gaming",
-    category: "Cyber",
-    tagline: "FAST Cyber Cyclones",
-    captain: "Captain: Rayan Khattak (Cyber '24)",
-    image: esportsImg,
-    badge: "CYBER DIVISION",
+    id: "volleyball",
+    name: "Volleyball",
+    category: "Main Sport",
+    subCategory: "Outdoor Arena",
+    tagline: "Spikers Elite",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "8 Players (6 playing, 2 substitutes)",
+    registrationFee: "3,500 PKR",
+    image: volleyballImg,
+    badge: "MALE",
     rules: [
-      { label: "Match Format", detail: "Valorant (5v5 Standard Tournament) & FIFA 26 (1v1 Solo)" },
-      { label: "Squad Size", detail: "5 Main + 1 Sub (Valorant) | 1 Player (FIFA)" },
-      { label: "Match Duration", detail: "Best of 3 Maps (Valorant) | 6-Min Halves (FIFA)" },
-      { label: "Scoring Rules", detail: "First to 13 rounds wins map in Valorant (OT MR3). Aggregate goals FIFA." },
-      { label: "Fair Play", detail: "Third-party hacks, macros, or toxic speech = instant DQ." },
-      { label: "Equipment", detail: "Tournament PCs provided. Personal Mouse & Headset permitted." },
+      { label: "Match Format", detail: "Best 2 out of 3 sets or best 3 out of 5 sets. Rally point scoring system." },
+      { label: "Set Scoring", detail: "25 points per set with a minimum lead of 2 points." },
+      { label: "Knockout Matches", detail: "Simple qualifying matches played as single set to 21 points." },
+      { label: "Touch & Net Rules", detail: "Maximum 3 touches per side. Net touches, catching, or holding ball lose point." },
+      { label: "Serving & Out", detail: "Serve must clear net into opponent court. Out of bounds gives point to opposing team." },
     ],
   },
   {
-    id: "athletics",
-    name: "Athletics & Track",
-    category: "Outdoor",
-    tagline: "Peshawar Sprinters",
-    captain: "Captain: Zubair Malik (CS '23)",
-    image: athleticsImg,
-    badge: "TRACK & FIELD",
+    id: "uno",
+    name: "UNO",
+    category: "MORE GAMES",
+    subCategory: "Card Game",
+    tagline: "Wild Card Showdown",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "4–6 Players per table",
+    registrationFee: "200 PKR / person",
+    image: unoImg,
+    badge: "MALE / FEMALE",
     rules: [
-      { label: "Match Format", detail: "100m Sprint, 400m Race, 4x100m Relay & Shot Put" },
-      { label: "Squad Size", detail: "Individual Entries & 4-Runner Relay Teams" },
-      { label: "Scoring Method", detail: "Top 3 timings in heats qualify for Grand Final." },
-      { label: "False Start", detail: "False Start results in immediate disqualification from sprint." },
-      { label: "Equipment", detail: "Running Spikes / Athletics Shoes & Official Bib Numbers." },
+      { label: "Format & Setup", detail: "Individual game; 4–6 players per table. 7 cards dealt at start." },
+      { label: "Gameplay", detail: "Match top discard card by colour, number, or symbol. If unable, draw 1 card." },
+      { label: "UNO Call", detail: "Must call 'UNO' when holding 1 card. If caught before next player turn, draw 2 penalty cards." },
+      { label: "Action Cards", detail: "Skip, Reverse, Draw Two (+2), Wild, Wild Draw Four (+4)." },
+      { label: "Strict Regulations", detail: "NO stacking +2/+4 cards. NO house rules (no jump-in, no 7-0)." },
+      { label: "Win Condition", detail: "First player to play their final card wins the game." },
     ],
   },
   {
-    id: "chess",
-    name: "Chess & Mind Sports",
-    category: "Mind Sports",
-    tagline: "Grandmasters Society",
-    captain: "Captain: Sara Paracha (AI '25)",
-    image: chessImg,
-    badge: "MIND SPORTS",
+    id: "mafiawars",
+    name: "Mafia Wars",
+    category: "MORE GAMES",
+    subCategory: "Social Strategy",
+    tagline: "Town of Deceit",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "10–12 players per game",
+    registrationFee: "100 PKR / person",
+    image: mafiaImg,
+    badge: "MALE / FEMALE",
     rules: [
-      { label: "Match Format", detail: "5-Round Swiss Tournament (FIDE Rapid Format)" },
-      { label: "Time Control", detail: "10 Minutes + 5 Seconds Increment per move (10+5)" },
-      { label: "Scoring", detail: "1 Pt for Win, 0.5 for Draw, 0 for Loss. Buchholz tie-breaks." },
-      { label: "Disciplinary", detail: "Touch-Move Rule enforced strictly. 2 Illegal Moves = loss of game." },
-      { label: "Equipment", detail: "Digital DGT Chess Clocks & FIDE Weighted Boards provided." },
+      { label: "Game Format", detail: "12 players per game + 1 Host. Individual participation with secret roles." },
+      { label: "Night Phase", detail: "Mafia eliminates 1 player; Doctor protects 1 player; Detective investigates 1 player; Psycho Civilian ability." },
+      { label: "Day Phase", detail: "Players discuss and vote to eliminate 1 suspect. In case of tie, revote held; if still tied, no elimination." },
+      { label: "Win Conditions", detail: "Mafia wins when Mafia count >= Town; Town wins when all Mafia eliminated; Jester wins if voted out on Day." },
+      { label: "Secrecy & Host", detail: "Do not reveal role cards. Host manages all phases and decisions are final." },
+    ],
+  },
+  {
+    id: "jenga",
+    name: "Jenga",
+    category: "MORE GAMES",
+    subCategory: "Skill & Precision",
+    tagline: "Tower of Tension",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "1 Player",
+    registrationFee: "200 PKR",
+    image: jengaImg,
+    badge: "MALE / FEMALE",
+    rules: [
+      { label: "Goal", detail: "Pull wooden blocks from the tower without causing it to crash." },
+      { label: "Turn Execution", detail: "Carefully remove 1 block from any level below the top completed story." },
+      { label: "Stacking", detail: "Place block on the top level at right angles to the blocks below it." },
+      { label: "Single Hand", detail: "Only one hand may be used to touch or test blocks at any time." },
+      { label: "Tower Fall", detail: "The player who causes the tower to collapse loses the match." },
+    ],
+  },
+  {
+    id: "darts",
+    name: "Darts",
+    category: "MORE GAMES",
+    subCategory: "Target Sport",
+    tagline: "Bullseye Master",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "1 Player",
+    registrationFee: "150 PKR",
+    image: dartsImg,
+    badge: "MALE / FEMALE",
+    rules: [
+      { label: "Format", detail: "1 Player individual precision target game." },
+      { label: "Oche Line", detail: "Throws must be taken from behind the official throw line (oche)." },
+      { label: "Turn Scoring", detail: "3 darts thrown per turn. Score recorded based on board sector rings." },
+      { label: "Target Sectors", detail: "Inner Bullseye = 50 pts, Outer Bullseye = 25 pts, Doubles/Triples as marked." },
+      { label: "Winner", detail: "Player accumulating the highest score over specified rounds wins." },
+    ],
+  },
+  {
+    id: "dodgeball",
+    name: "Dodgeball",
+    category: "MORE GAMES",
+    subCategory: "Team Action",
+    tagline: "Duck & Dodge",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "6–12 Players",
+    registrationFee: "1,000 PKR",
+    image: dodgeballImg,
+    badge: "MALE",
+    rules: [
+      { label: "Teams & Opening Rush", detail: "2 teams (6-12 players). Equal balls along center line; teams rush on whistle." },
+      { label: "Hits & Elimination", detail: "Hit directly below neck by thrown ball = eliminated." },
+      { label: "Catching Throws", detail: "Catching opponent thrown ball eliminates thrower AND brings 1 eliminated teammate back." },
+      { label: "Blocking", detail: "May block incoming ball with held ball; if knocked loose & hits ground, blocker is out." },
+      { label: "Match Winner", detail: "Best-of-three rounds. Round ends when all opposing players are eliminated." },
+    ],
+  },
+  {
+    id: "sequence",
+    name: "Sequence",
+    category: "MORE GAMES",
+    subCategory: "Board Strategy",
+    tagline: "5-in-a-Row Strategy",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "2–12 Players (Team or Indiv)",
+    registrationFee: "200 PKR / person",
+    image: sequenceImg,
+    badge: "MALE / FEMALE",
+    rules: [
+      { label: "Objective", detail: "5 chips in a row (horizontal, vertical, diagonal) = 1 Sequence." },
+      { label: "Win Condition", detail: "2 Sequences to win for 2 players/teams; 1 Sequence for 3 players/teams." },
+      { label: "Turn Flow", detail: "Play card -> place matching chip on board -> draw new card (must draw before next turn)." },
+      { label: "Jacks Ability", detail: "Two-eyed Jack: place chip anywhere. One-eyed Jack: remove opponent chip." },
+      { label: "Corners & Fair Play", detail: "4 corners are free for everyone. No coaching or signaling in team play." },
+    ],
+  },
+  {
+    id: "musicalchairs",
+    name: "Musical Chairs",
+    category: "MORE GAMES",
+    subCategory: "Fun Event",
+    tagline: "Last Chair Standing",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "Individual",
+    registrationFee: "100 PKR / person",
+    image: musicalChairsImg,
+    badge: "MALE / FEMALE",
+    rules: [
+      { label: "Setup", detail: "Chairs arranged facing outwards in a circle, with 1 fewer chair than total players." },
+      { label: "Music & Movement", detail: "Players walk around chairs while music plays." },
+      { label: "Elimination", detail: "When music stops, players must sit immediately. Player left standing is eliminated." },
+      { label: "Final Round", detail: "1 chair removed each round. Final 2 players compete for 1 remaining chair." },
+    ],
+  },
+  {
+    id: "carrom",
+    name: "Carrom",
+    category: "MORE GAMES",
+    subCategory: "Indoor Board",
+    tagline: "Striker Champions",
+    dates: "5 Oct – 8 Oct 2026",
+    players: "2 Players Team",
+    registrationFee: "500 PKR per person",
+    image: carromImg,
+    badge: "MALE / FEMALE",
+    rules: [
+      { label: "Format", detail: "2 Players team match on standard carrom board." },
+      { label: "Striking", detail: "Pocket carrom men coins using official striker." },
+      { label: "Queen Covering", detail: "Red queen must be covered by pocketing a carrom piece on the immediate next strike." },
+      { label: "Fouls", detail: "Striker pocketed or coins knocked off board incurs penalty coin return." },
     ],
   },
 ];
 ---
 
-<Layout title="Sports Cards & Tournament Rules | FAST NUCES Peshawar Sports Society">
+<Layout title="Sports Cards & Official Tournament Rules | FAST NUCES Peshawar Sports Society">
   <Navbar />
   <main class="pt-28 pb-24 bg-black text-white">
     
@@ -177,71 +279,309 @@ const sportsWithRules = [
     <div class="relative py-16 bg-gradient-to-b from-red-950/60 via-zinc-950 to-black border-b border-zinc-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span class="px-4 py-1.5 bg-red-600 text-white font-bebas text-sm tracking-widest uppercase rounded-full shadow-lg">
-          ATHLETIC DISCIPLINES & RULES
+          SPORTS WEEK 2026 • 5 – 8 OCTOBER
         </span>
         <h1 class="font-bebas text-6xl sm:text-8xl tracking-tight text-white mt-4">
-          SPORTS CARDS & <span class="text-red-600">MATCH RULES</span>
+          SPORTS CARDS & <span class="text-red-600">OFFICIAL RULES</span>
         </h1>
-        <p class="max-w-3xl mx-auto text-zinc-300 text-base sm:text-lg mt-4">
-          Detailed sports cards, team captains, squad limits, match durations, and official tournament regulations.
+        <p class="max-w-3xl mx-auto text-zinc-300 text-base sm:text-lg mt-4 mb-6">
+          Explore the official 13 sports disciplines included in the FAST NUCES Peshawar Sports Week. Click any card to view complete match rules or register now!
         </p>
+
+        <a
+          href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm tracking-wider uppercase rounded-full shadow-lg shadow-red-950/80 hover:scale-105 transition-all"
+        >
+          <span>Register Now For Sports Week</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
       </div>
     </div>
 
-    <!-- Sports List Container -->
-    <div id="rules" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+    <!-- Sports Cards Grid Container -->
+    <div id="rules" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
       
-      {sportsWithRules.map((sport) => (
-        <div class="p-6 sm:p-10 rounded-3xl bg-zinc-950 border border-zinc-800/80 hover:border-red-600/50 transition-all flex flex-col lg:flex-row gap-8 items-start">
-          
-          <!-- Image & Captain Details -->
-          <div class="lg:w-1/3 w-full space-y-4">
-            <div class="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden border border-zinc-800">
-              <Image
-                src={sport.image}
-                alt={sport.name}
-                class="w-full h-full object-cover filter brightness-90"
-              />
-              <span class="absolute top-3 left-3 px-3 py-1 bg-red-600/90 text-white rounded-full text-[10px] font-extrabold uppercase tracking-widest">
-                {sport.badge}
-              </span>
-              <span class="absolute top-3 right-3 px-3 py-1 bg-black/80 text-zinc-300 border border-zinc-700 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                {sport.category}
-              </span>
-            </div>
+      <!-- MAIN SPORTS SECTION -->
+      <div>
+        <div class="flex items-center gap-3 mb-8 border-b border-zinc-800 pb-4">
+          <span class="w-3 h-3 rounded-full bg-red-600"></span>
+          <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">
+            MAIN SPORTS <span class="text-zinc-500 text-2xl font-mono">(5 DISCIPLINES)</span>
+          </h2>
+        </div>
 
-            <div>
-              <h3 class="font-bebas text-4xl text-white tracking-wide">{sport.name}</h3>
-              <p class="text-xs font-bold text-red-500 uppercase tracking-widest mt-1">{sport.tagline}</p>
-              <p class="text-xs text-zinc-400 font-mono mt-1">{sport.captain}</p>
-            </div>
-          </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sportsData.filter(s => s.category === "Main Sport").map((sport) => (
+            <div 
+              class="sport-card group cursor-pointer relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/60 flex flex-col justify-between"
+              data-sport={JSON.stringify(sport)}
+            >
+              <!-- Poster Image -->
+              <div class="relative h-64 w-full overflow-hidden">
+                <Image
+                  src={sport.image}
+                  alt={sport.name}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90 group-hover:brightness-100"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+                
+                <span class="absolute top-4 left-4 px-3 py-1 bg-red-600/90 backdrop-blur-md text-white rounded-full text-[10px] font-extrabold uppercase tracking-widest">
+                  {sport.badge}
+                </span>
 
-          <!-- Official Rules Grid -->
-          <div class="lg:w-2/3 w-full space-y-4">
-            <h4 class="text-xs font-bold uppercase tracking-widest text-red-400 font-mono pb-2 border-b border-zinc-800">
-              Official Match Rules & Guidelines:
-            </h4>
+                <span class="absolute top-4 right-4 px-3 py-1 bg-black/80 text-zinc-300 border border-zinc-700 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                  {sport.subCategory}
+                </span>
+              </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {sport.rules.map((rule) => (
-                <div class="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800/80">
-                  <span class="text-xs font-bold uppercase tracking-wider text-red-400 block font-mono mb-1">
-                    {rule.label}
-                  </span>
-                  <p class="text-xs text-zinc-300 leading-relaxed">
-                    {rule.detail}
+              <!-- Content -->
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <h3 class="font-bebas text-4xl text-white tracking-wide group-hover:text-red-500 transition-colors">
+                      {sport.name}
+                    </h3>
+                    <span class="text-xs font-bold text-red-400 uppercase tracking-widest">{sport.tagline}</span>
+                  </div>
+
+                  <p class="text-xs text-zinc-400 font-mono mt-2">
+                    👥 {sport.players}
+                  </p>
+
+                  <p class="text-xs text-zinc-400 font-mono mt-1">
+                    💰 Registration: <strong class="text-red-400">{sport.registrationFee}</strong>
                   </p>
                 </div>
-              ))}
+
+                <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between gap-2">
+                  <span class="text-xs font-extrabold uppercase tracking-widest text-zinc-300 group-hover:text-red-400 transition-colors flex items-center gap-1">
+                    <span>Rules</span>
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+
+                  <a
+                    href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="event.stopPropagation()"
+                    class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs tracking-wider uppercase rounded-xl transition-all shadow-md shadow-red-950/60 flex items-center gap-1.5"
+                  >
+                    <span>Register Now</span>
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- MORE GAMES SECTION -->
+      <div>
+        <div class="flex items-center gap-3 mb-8 border-b border-zinc-800 pb-4">
+          <span class="w-3 h-3 rounded-full bg-red-600"></span>
+          <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-wide">
+            MORE GAMES <span class="text-zinc-500 text-2xl font-mono">(8 FUN & STRATEGY GAMES)</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {sportsData.filter(s => s.category === "MORE GAMES").map((sport) => (
+            <div 
+              class="sport-card group cursor-pointer relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/60 flex flex-col justify-between"
+              data-sport={JSON.stringify(sport)}
+            >
+              <!-- Poster Image -->
+              <div class="relative h-52 w-full overflow-hidden">
+                <Image
+                  src={sport.image}
+                  alt={sport.name}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90 group-hover:brightness-100"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+                
+                <span class="absolute top-3 left-3 px-2.5 py-0.5 bg-red-600/90 backdrop-blur-md text-white rounded-full text-[10px] font-extrabold uppercase tracking-widest">
+                  {sport.badge}
+                </span>
+              </div>
+
+              <!-- Content -->
+              <div class="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-bebas text-3xl text-white tracking-wide group-hover:text-red-500 transition-colors">
+                    {sport.name}
+                  </h3>
+                  <span class="text-[11px] font-bold text-red-400 uppercase tracking-widest block mb-2">{sport.tagline}</span>
+
+                  <p class="text-[11px] text-zinc-400 font-mono">
+                    👥 {sport.players}
+                  </p>
+                  <p class="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    💰 Fee: <strong class="text-red-400">{sport.registrationFee}</strong>
+                  </p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-extrabold uppercase tracking-wider text-zinc-300 group-hover:text-red-400 transition-colors">
+                    Rules
+                  </span>
+
+                  <a
+                    href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="event.stopPropagation()"
+                    class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-[10px] tracking-wider uppercase rounded-lg transition-all shadow-md shadow-red-950/60 flex items-center gap-1"
+                  >
+                    <span>Register</span>
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RULES MODAL POPUP -->
+    <div id="rules-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md transition-all">
+      <div class="relative w-full max-w-3xl max-h-[90vh] bg-zinc-950 border border-red-600/60 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+        
+        <!-- Modal Header -->
+        <div class="p-6 bg-gradient-to-r from-red-950/90 via-zinc-900 to-zinc-950 border-b border-zinc-800 flex items-start justify-between">
+          <div>
+            <span id="modal-dates" class="text-xs font-bold uppercase tracking-widest text-red-400 font-mono block">
+              5 OCT – 8 OCT 2026
+            </span>
+            <h3 id="modal-title" class="font-bebas text-4xl sm:text-5xl text-white tracking-wide mt-1">
+              SPORT RULES
+            </h3>
+            <div class="flex items-center gap-3 mt-1 text-xs text-zinc-300 font-mono">
+              <span id="modal-players">👥 Players</span>
+              <span>•</span>
+              <span id="modal-fee" class="text-red-400">💰 Fee</span>
             </div>
           </div>
 
+          <button 
+            id="close-modal" 
+            type="button" 
+            class="p-2.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white hover:bg-red-600 transition-all focus:outline-none"
+            aria-label="Close rules modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-      ))}
 
+        <!-- Modal Body (Rules List) -->
+        <div id="modal-rules-container" class="p-6 sm:p-8 overflow-y-auto space-y-4 max-h-[60vh] bg-zinc-950">
+          <!-- Dynamic rules inserted via JavaScript -->
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="p-4 bg-zinc-900 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400 font-mono">
+          <span>FAST NUCES Peshawar Sports Society</span>
+          
+          <div class="flex items-center gap-3">
+            <a 
+              href="https://forms.gle/MqXNNPWHjV4oW2bP7"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-5 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold uppercase tracking-wider transition-all shadow-md shadow-red-950/60 flex items-center gap-1.5"
+            >
+              <span>Register Now</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            
+            <button 
+              id="modal-close-btn"
+              class="px-4 py-2 rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold uppercase tracking-wider transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const cards = document.querySelectorAll(".sport-card");
+  const modal = document.getElementById("rules-modal");
+  const closeModal = document.getElementById("close-modal");
+  const modalCloseBtn = document.getElementById("modal-close-btn");
+
+  const modalTitle = document.getElementById("modal-title");
+  const modalDates = document.getElementById("modal-dates");
+  const modalPlayers = document.getElementById("modal-players");
+  const modalFee = document.getElementById("modal-fee");
+  const rulesContainer = document.getElementById("modal-rules-container");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const dataRaw = card.getAttribute("data-sport");
+      if (!dataRaw) return;
+
+      const data = JSON.parse(dataRaw);
+
+      if (modalTitle) modalTitle.textContent = data.name + " Official Rules";
+      if (modalDates) modalDates.textContent = "SPORTS WEEK • " + data.dates;
+      if (modalPlayers) modalPlayers.textContent = "👥 " + data.players;
+      if (modalFee) modalFee.textContent = "💰 Reg Fee: " + data.registrationFee;
+
+      if (rulesContainer) {
+        rulesContainer.innerHTML = "";
+        data.rules.forEach((rule: { label: string; detail: string }) => {
+          const div = document.createElement("div");
+          div.className = "p-4 rounded-xl bg-zinc-900/80 border border-zinc-800";
+          div.innerHTML = `
+            <span class="text-xs font-bold uppercase tracking-wider text-red-400 block font-mono mb-1">
+              • ${rule.label}
+            </span>
+            <p class="text-xs sm:text-sm text-zinc-200 leading-relaxed">
+              ${rule.detail}
+            </p>
+          `;
+          rulesContainer.appendChild(div);
+        });
+      }
+
+      modal?.classList.remove("hidden");
+      modal?.classList.add("flex");
+    });
+  });
+
+  const hideModal = () => {
+    modal?.classList.add("hidden");
+    modal?.classList.remove("flex");
+  };
+
+  closeModal?.addEventListener("click", hideModal);
+  modalCloseBtn?.addEventListener("click", hideModal);
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) hideModal();
+  });
+</script>
