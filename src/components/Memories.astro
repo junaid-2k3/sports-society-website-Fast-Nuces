@@ -1,0 +1,285 @@
+---
+const normalizeImageUrl = (value) => {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object') {
+    return value.default ?? value.src ?? '';
+  }
+  return '';
+};
+
+const imageEntries = Object.values(
+  import.meta.glob('../assets/memories/*.{jpg,jpeg,png,webp}', {
+    eager: true,
+    import: 'default',
+  }),
+).map(normalizeImageUrl).filter(Boolean);
+
+const leftImages = imageEntries.filter((_, index) => index % 2 === 0);
+const rightImages = imageEntries.filter((_, index) => index % 2 !== 0);
+
+const title = 'Some memories from';
+---
+
+<section class="memories-section" aria-labelledby="memories-heading">
+  <div class="memories-shell">
+    <h2 id="memories-heading" class="memories-heading">
+      {title}
+      <span class="memories-highlight">sports week 2025</span>
+    </h2>
+
+    <div class="memories-grid">
+      <article
+        class="memory-card memory-card-left"
+        data-panel="left"
+        data-direction="left"
+        data-images={leftImages.join('|')}
+      >
+        <div class="memory-media">
+          <img src={leftImages[0]} alt="Sports Week 2025 memory" class="memory-photo memory-photo--current" />
+          <img src={leftImages[1] ?? leftImages[0]} alt="Sports Week 2025 memory" class="memory-photo memory-photo--next" />
+        </div>
+        <span class="memory-badge">SPORTS WEEK 2025</span>
+      </article>
+
+      <article
+        class="memory-card memory-card-right"
+        data-panel="right"
+        data-direction="right"
+        data-images={rightImages.join('|')}
+      >
+        <div class="memory-media">
+          <img src={rightImages[0]} alt="Sports Week 2025 memory" class="memory-photo memory-photo--current" />
+          <img src={rightImages[1] ?? rightImages[0]} alt="Sports Week 2025 memory" class="memory-photo memory-photo--next" />
+        </div>
+        <span class="memory-badge">MEMORY 02</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cards = [...document.querySelectorAll('.memory-card')];
+
+  const parseImages = (value) => {
+    return (value || '')
+      .split('|')
+      .map((entry) => entry.trim())
+      .filter(Boolean)
+      .map((entry) => decodeURIComponent(entry));
+  };
+
+  const setupCard = (card) => {
+    const current = card.querySelector('.memory-photo--current');
+    const next = card.querySelector('.memory-photo--next');
+    const images = parseImages(card.dataset.images);
+    let currentIndex = 0;
+    let active = current;
+    let incoming = next;
+
+    if (!images.length) return { tick: () => {} };
+
+    active.src = images[0];
+    incoming.src = images[1] || images[0];
+    active.style.opacity = '1';
+    active.style.transform = 'translate3d(0, 0, 0)';
+    incoming.style.opacity = '0';
+    incoming.style.transform = 'translate3d(100%, 0, 0)';
+
+    return {
+      tick: () => {
+        const nextIndex = (currentIndex + 1) % images.length;
+        const previous = active;
+        const upcoming = incoming;
+
+        upcoming.src = images[nextIndex];
+        upcoming.style.opacity = '1';
+        upcoming.style.transform = 'translate3d(100%, 0, 0)';
+        previous.style.opacity = '1';
+        previous.style.transform = 'translate3d(-100%, 0, 0)';
+
+        requestAnimationFrame(() => {
+          upcoming.style.transition = 'transform 0.9s ease, opacity 0.9s ease';
+          previous.style.transition = 'transform 0.9s ease, opacity 0.9s ease';
+          upcoming.style.transform = 'translate3d(0, 0, 0)';
+          previous.style.transform = 'translate3d(-100%, 0, 0)';
+          previous.style.opacity = '0';
+        });
+
+        active = upcoming;
+        incoming = previous;
+        currentIndex = nextIndex;
+      },
+    };
+  };
+
+  const cardStates = cards.map((card) => setupCard(card));
+
+  const intervalId = window.setInterval(() => {
+    cardStates.forEach((state) => state.tick());
+  }, 2500);
+
+  window.addEventListener(
+    'beforeunload',
+    () => {
+      window.clearInterval(intervalId);
+    },
+    { once: true },
+  );
+</script>
+
+<style>
+  .memories-section {
+    position: relative;
+    padding: 6rem 1rem 2rem;
+    background-image:
+      linear-gradient(180deg, rgba(12, 12, 12, 0.72), rgba(8, 8, 8, 0.9)),
+      url('/background/background3.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .memories-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .memories-heading {
+    margin: 0 0 2.25rem;
+    font-family: var(--font-bebas);
+    font-size: clamp(2.3rem, 4vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 0.96;
+    color: #ffffff;
+    text-align: center;
+    opacity: 1;
+    transform: none;
+    text-transform: none;
+  }
+
+  .memories-highlight {
+    color: #ffffff;
+  }
+
+  .memories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+
+  .memory-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    min-height: 520px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #111;
+    opacity: 1;
+    transform: none;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+    transition: border-color 0.3s ease;
+    isolation: isolate;
+  }
+
+  .memory-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .memory-card-left {
+    transform-origin: left center;
+  }
+
+  .memory-card-right {
+    transform-origin: right center;
+  }
+
+  .memory-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.48));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .memory-card:hover::after {
+    opacity: 1;
+  }
+
+  .memory-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+
+  .memory-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.9s ease, opacity 0.9s ease;
+  }
+
+  .memory-photo--current {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    z-index: 0;
+  }
+
+  .memory-photo--next {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    z-index: 1;
+  }
+
+  .memory-badge {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.48rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(15, 15, 15, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+  }
+
+  @media (max-width: 900px) {
+    .memories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .memory-card {
+      min-height: 420px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .memories-heading,
+    .memory-card,
+    .memory-photo,
+    .memory-photo--next,
+    .memory-photo--current {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

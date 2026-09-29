@@ -5,7 +5,7 @@ import Hero from "../components/Hero.astro";
 import MovementStatement from "../components/MovementStatement.astro";
 import QuickLinks from "../components/QuickLinks.astro";
 import MatchFixtures from "../components/MatchFixtures.astro";
-import SportsGrid from "../components/SportsGrid.astro";
+import Memories from "../components/Memories.astro";
 import JoinCTA from "../components/JoinCTA.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -17,7 +17,40 @@ import Footer from "../components/Footer.astro";
     <MovementStatement />
     <QuickLinks />
     <MatchFixtures />
-    <SportsGrid />
+    <Memories />
+
+    <div id="code" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-900">
+      <div class="relative overflow-hidden p-8 sm:p-12 rounded-3xl border border-red-900/40 bg-zinc-950">
+        <div class="absolute inset-0">
+          <img
+            src="/background/background2.jpeg"
+            alt="Ground rules background"
+            class="h-full w-full object-cover object-center opacity-30"
+          />
+        </div>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="relative z-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-500">GROUND RULES</span>
+          <h2 class="font-bebas text-5xl text-white tracking-wide mt-1 mb-6">FASTIAN FAN CODE OF CONDUCT</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-zinc-300">
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">1. RESPECT ATHLETES & REFEREES</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">We cheer passionately for FAST NUCES while maintaining utter respect for all student athletes and match officials.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">2. LOUD, POSITIVE SUPPORT</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">Bring maximum energy, chants, and drums. Discriminatory or abusive language is strictly prohibited.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">3. KEEP GROUNDS CLEAN</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">Respect our campus sports complex. Dispose of trash in designated bins after every match day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <JoinCTA />
   </main>
   <Footer />
