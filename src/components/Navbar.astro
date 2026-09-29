@@ -8,8 +8,14 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-zinc-800 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="fixed top-0 left-0 right-0 z-50 bg-black border-b border-zinc-800 transition-all duration-300 relative overflow-hidden">
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
+    style="background-image: url('/background/header_background.png');"
+  ></div>
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <!-- Brand Logo -->
       <a href="/" class="flex items-center gap-3 group">
@@ -18,15 +24,9 @@ const navLinks = [
           alt="FAST Peshawar Sports Society Logo"
           class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         />
-        <div class="h-7 w-px bg-zinc-800 hidden sm:block"></div>
-        <img
-          src="/logos/fast_nu_full_log.png"
-          alt="FAST NUCES Logo"
-          class="h-8 w-auto object-contain hidden sm:block opacity-90 group-hover:opacity-100 transition-opacity brightness-200"
-        />
         <div class="flex flex-col">
           <span class="font-bebas text-2xl tracking-wider leading-none text-white flex items-center gap-1.5">
-            FAST <span class="text-red-600">CYCLONES</span>
+            FAST <span class="text-blue-500">NUCES</span>
           </span>
           <span class="text-[10px] uppercase font-semibold text-zinc-400 tracking-widest hidden md:block">
             Peshawar Sports Society
@@ -64,7 +64,7 @@ const navLinks = [
   </div>
 
   <!-- Mobile Menu Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-3 pb-6">
+  <div id="mobile-menu" class="relative z-10 hidden md:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-3 pb-6">
     <div class="flex flex-col gap-2">
       {navLinks.map((link) => (
         <a

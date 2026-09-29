@@ -1,9 +1,12 @@
 ---
-import { Image } from "astro:assets";
 import statementImg from "../assets/home poster.jpg";
 ---
 
 <section id="movement" class="relative py-24 md:py-32 bg-zinc-950 overflow-hidden border-t border-b border-white/10">
+  <div class="absolute inset-0">
+    <img src="/background/background1.jpeg" alt="FASTian Spirit background" class="h-full w-full object-cover opacity-25" />
+  </div>
+  <div class="absolute inset-0 bg-black/45"></div>
   <!-- Background Noise + Subtle Red Radial Blur -->
   <div class="absolute inset-0 noise opacity-30 pointer-events-none"></div>
   <div class="absolute -top-40 -left-40 w-96 h-96 bg-red-900/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -65,9 +68,13 @@ import statementImg from "../assets/home poster.jpg";
       <!-- Image & Badge Side -->
       <div class="lg:col-span-5 relative">
         <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-red-900/40 group">
-          <Image
-            src={statementImg}
-            alt="FAST NUCES Sports Celebration Energy"
+          <video
+            src="/videos/fastian_spirit_section_video.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster={statementImg.src}
             class="w-full h-[450px] sm:h-[550px] object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>

@@ -6,9 +6,15 @@ import Footer from "../components/Footer.astro";
 
 <Layout title="Sports Week Fixtures | FAST NUCES Peshawar Sports Society">
   <Navbar />
-  <main class="pt-28 pb-24 bg-black text-white min-h-[80vh] flex flex-col justify-center items-center">
-    
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-16">
+  <main class="relative pt-28 pb-24 bg-black text-white min-h-[80vh] flex flex-col justify-center items-center overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-50"
+      style="background-image: url('/background/fast_peshawar_campus_2.webp');"
+      aria-hidden="true"
+    ></div>
+    <div class="absolute inset-0 bg-black/55" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto py-16">
       
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/80 border border-red-800/60 mb-6 shadow-lg shadow-red-950/50">
         <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>

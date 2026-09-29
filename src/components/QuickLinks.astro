@@ -45,25 +45,32 @@ const navCards = [
       {navCards.map((card) => (
         <a
           href={card.link}
-          class="group p-6 rounded-2xl bg-zinc-950 border border-zinc-800 hover:border-red-600 transition-all flex flex-col justify-between"
+          class="group relative overflow-hidden p-6 rounded-2xl border border-zinc-800 hover:border-red-600 transition-all flex flex-col justify-between bg-zinc-950/80"
         >
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-red-500 block mb-2">
-              {card.category}
-            </span>
-            <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-red-500 transition-colors mb-2">
-              {card.title}
-            </h3>
-            <p class="text-xs text-zinc-400 leading-relaxed mb-6">
-              {card.desc}
-            </p>
+          <div class="absolute inset-0">
+            <img src="/background/background3.jpeg" alt="Direct navigation background" class="h-full w-full object-cover opacity-35" />
           </div>
+          <div class="absolute inset-0 bg-black/55"></div>
 
-          <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-wider text-zinc-300 group-hover:text-white transition-colors">
-              {card.cta}
-            </span>
-            <span class="text-red-500 group-hover:translate-x-1 transition-transform text-sm">→</span>
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-red-500 block mb-2">
+                {card.category}
+              </span>
+              <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-red-500 transition-colors mb-2">
+                {card.title}
+              </h3>
+              <p class="text-xs text-zinc-300 leading-relaxed mb-6">
+                {card.desc}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-zinc-700/70 flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-zinc-200 group-hover:text-white transition-colors">
+                {card.cta}
+              </span>
+              <span class="text-red-500 group-hover:translate-x-1 transition-transform text-sm">→</span>
+            </div>
           </div>
         </a>
       ))}

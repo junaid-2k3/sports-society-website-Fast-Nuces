@@ -1,36 +1,39 @@
 ---
-import { Image } from "astro:assets";
-import heroImg from "../assets/home poster.jpg";
+const heroVideos = [
+  "/videos/video1.mp4",
+  "/videos/video2.mp4",
+  "/videos/video3.mp4",
+  "/videos/video4.mp4",
+];
 ---
 
 <section class="relative min-h-[85vh] w-full flex flex-col justify-between overflow-hidden pt-24 bg-black">
-  <!-- Background Sports Image -->
-  <div class="absolute inset-0 z-0">
-    <Image
-      src={heroImg}
-      alt="FAST NUCES Peshawar Sports Stadium"
-      class="w-full h-full object-cover object-center filter brightness-[0.4] contrast-110"
-      loading="eager"
-    />
+  <!-- Background Sports Videos -->
+  <div class="absolute inset-0 z-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    {heroVideos.map((videoSrc) => (
+      <video
+        src={videoSrc}
+        autoplay
+        muted
+        loop
+        playsinline
+        class="h-full w-full object-cover object-center filter brightness-[0.4] contrast-110"
+      />
+    ))}
   </div>
 
   <div class="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/60 to-black/80"></div>
 
   <!-- Hero Main Content -->
-  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto text-center flex flex-col items-center py-16">
-    
-    <span class="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 font-mono">
-      FAST NUCES Peshawar Sports Portal • 5 - 8 October 2026
-    </span>
-
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto text-center flex flex-col items-center py-16" data-hero-content>
     <h1 class="font-bebas text-6xl sm:text-8xl md:text-9xl tracking-tighter leading-none text-white">
-      <span class="block text-zinc-300 uppercase tracking-widest text-3xl sm:text-5xl md:text-6xl mb-1">FAST NUCES PESHAWAR</span>
-      <span class="block text-red-600">THE CYCLONES</span>
+      <span class="block text-zinc-300 uppercase tracking-widest text-3xl sm:text-5xl md:text-6xl mb-1" data-hero-line>FAST NUCES PESHAWAR</span>
+      <span class="block text-red-600" data-hero-line>Sports society</span>
     </h1>
 
-    <p class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-zinc-300 font-medium leading-relaxed">
+    <p class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-zinc-300 font-medium leading-relaxed" data-hero-copy>
       We bring the noise. We bring the passion.<br />
-      The official athletic portal for FAST NUCES Peshawar Sports Week (5 – 8 Oct 2026), rules, and core team.
+      Sports Week 2026 is starting from 5th of oct get yourself registered now!
     </p>
 
     <div class="mt-10 flex flex-wrap gap-4 justify-center items-center">
@@ -71,3 +74,68 @@ import heroImg from "../assets/home poster.jpg";
     </div>
   </div>
 </section>
+
+<script type="module">
+  import { animate, stagger } from "animejs";
+
+  const playHeroTextAnimation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const heroContent = document.querySelector("[data-hero-content]");
+
+    if (!heroContent) {
+      return;
+    }
+
+    const kicker = heroContent.querySelector("[data-hero-kicker]");
+    const titleLines = heroContent.querySelectorAll("[data-hero-line]");
+    const copy = heroContent.querySelector("[data-hero-copy]");
+
+    if (kicker) {
+      animate(kicker, {
+        opacity: [0.85, 1],
+        translateY: [10, 0],
+        duration: 1600,
+        loop: true,
+        alternate: true,
+        loopDelay: 500,
+        ease: "outQuad",
+      });
+    }
+
+    if (titleLines.length > 0) {
+      animate(titleLines, {
+        opacity: [0.9, 1],
+        translateY: [26, 0],
+        letterSpacing: ["0.14em", "0.02em"],
+        duration: 1800,
+        loop: true,
+        alternate: true,
+        loopDelay: 600,
+        delay: stagger(140, { start: 120 }),
+        ease: "outExpo",
+      });
+    }
+
+    if (copy) {
+      animate(copy, {
+        opacity: [0.82, 1],
+        translateY: [12, 0],
+        duration: 2200,
+        delay: 260,
+        loop: true,
+        alternate: true,
+        loopDelay: 700,
+        ease: "outQuad",
+      });
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", playHeroTextAnimation, { once: true });
+  } else {
+    playHeroTextAnimation();
+  }
+</script>

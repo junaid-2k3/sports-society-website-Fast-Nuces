@@ -1,9 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --color-red-50: #eceae4;
+  --color-red-100: #d6d1ca;
+  --color-red-200: #c29b9e;
+  --color-red-300: #c29b9e;
+  --color-red-400: #c29b9e;
+  --color-red-500: #781d28;
+  --color-red-600: #781d28;
+  --color-red-700: #5d1520;
+  --color-red-800: #4a0e17;
+  --color-red-900: #35090f;
+  --color-red-950: #35090f;
+}
+
 @layer base {
   :root {
     --font-bebas: 'Bebas Neue', sans-serif;
     --font-inter: 'Inter', sans-serif;
+    --color-primary: #781d28;
+    --color-primary-deep: #5d1520;
+    --color-black: #000000;
   }
   
   html {
@@ -13,9 +30,16 @@
 
   body {
     font-family: var(--font-inter);
-    background-color: #000000;
+    background-color: var(--color-black);
     color: #ffffff;
     overflow-x: hidden;
+  }
+
+  main.bg-black,
+  section.bg-black,
+  header.bg-black,
+  footer.bg-black {
+    background: linear-gradient(180deg, var(--color-black) 0%, #12090d 42%, rgba(120, 29, 40, 0.9) 100%);
   }
 
   h1, h2, h3, .font-bebas {
@@ -37,26 +61,26 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #be0000;
+  background: #781d28;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e60000;
+  background: #5d1520;
 }
 
 /* Red Overlay Blend utility */
 .bg-red-blend {
-  background-color: rgba(190, 0, 0, 0.35);
+  background-color: rgba(120, 29, 40, 0.35);
   mix-blend-mode: multiply;
 }
 
 /* Button pulse & glow animation */
 @keyframes redGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(190, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(120, 29, 40, 0.4);
   }
   50% {
-    box-shadow: 0 0 30px rgba(190, 0, 0, 0.8);
+    box-shadow: 0 0 30px rgba(120, 29, 40, 0.8);
   }
 }
 

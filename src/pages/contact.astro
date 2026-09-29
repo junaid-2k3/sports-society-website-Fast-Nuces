@@ -25,9 +25,23 @@ import Footer from "../components/Footer.astro";
 
     <!-- SECTION 1: INTRO ABOUT ME (WEBSITE DESIGNER & DEV - JUNAID) -->
     <div id="developer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-zinc-900">
-      <div class="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-zinc-950 via-zinc-900 to-red-950/40 border border-red-600/50 shadow-2xl overflow-hidden">
+      <div class="relative rounded-3xl p-8 sm:p-12 bg-black border border-red-600/50 shadow-2xl overflow-hidden">
+        <div class="absolute inset-0">
+          <img
+            src="/background/background1.jpeg"
+            alt="About the developer background"
+            class="h-full w-full object-cover object-center opacity-30"
+          />
+        </div>
         
         <div class="absolute -right-20 -top-20 w-80 h-80 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 mb-8 text-center lg:text-left">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-300">Developer Profile</span>
+          <h2 class="font-bebas text-5xl sm:text-6xl text-white tracking-tight mt-1 leading-none">
+            ABOUT THE DEVELOPER
+          </h2>
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
@@ -41,34 +55,10 @@ import Footer from "../components/Footer.astro";
               />
               <div class="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-
-            <span class="px-4 py-1 bg-red-600 text-white font-bebas text-sm tracking-widest uppercase rounded-full shadow-md">
-              CREATOR & ENGINEER
-            </span>
-
-            <h3 class="font-bebas text-4xl text-white tracking-wide mt-3 mb-1">
-              JUNAID
-            </h3>
-            
-            <p class="text-xs font-bold uppercase tracking-widest text-red-400">
-              Website Designer & Full-Stack Developer
-            </p>
-            
-            <p class="text-xs text-zinc-400 font-mono mt-1">
-              FAST NUCES Peshawar Campus
-            </p>
           </div>
 
           <!-- Developer Bio & Tech Specs -->
           <div class="lg:col-span-8 space-y-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-red-950/80 border border-red-800/60">
-              <span class="text-xs font-bold uppercase tracking-widest text-red-300">About The Developer</span>
-            </div>
-
-            <h2 class="font-bebas text-4xl sm:text-5xl text-white tracking-tight leading-none">
-              CRAFTING THE DIGITAL VOICE OF <span class="text-red-500">FAST CYCLONES</span>
-            </h2>
-
             <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
               Hello! I'm <strong class="text-white font-semibold">Junaid</strong>, the website designer and software developer behind the official FAST NUCES Peshawar Sports Society Web Application. Built with passion for high performance, dynamic athletic styling, and seamless user experiences.
             </p>
@@ -157,14 +147,13 @@ import Footer from "../components/Footer.astro";
             <p class="text-xs text-zinc-300 mb-6">Stay updated with live score announcements, trial dates, and sports gala updates.</p>
             
             <div class="flex flex-wrap gap-3">
-              <a href="#" class="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all">
-                WhatsApp Channel
-              </a>
-              <a href="#" class="px-5 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs uppercase tracking-wider transition-all">
+              <a
+                href="https://www.instagram.com/fastsportsociety/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all"
+              >
                 Instagram Page
-              </a>
-              <a href="#" class="px-5 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs uppercase tracking-wider transition-all">
-                Discord Community
               </a>
             </div>
           </div>
@@ -216,22 +205,32 @@ import Footer from "../components/Footer.astro";
 
     <!-- Fan Code of Conduct Section -->
     <div id="code" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-900">
-      <div class="p-8 sm:p-12 rounded-3xl bg-zinc-950 border border-red-900/40">
-        <span class="text-xs font-bold uppercase tracking-widest text-red-500">GROUND RULES</span>
-        <h2 class="font-bebas text-5xl text-white tracking-wide mt-1 mb-6">FASTIAN FAN CODE OF CONDUCT</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-zinc-300">
-          <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
-            <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">1. RESPECT ATHLETES & REFEREES</h4>
-            <p class="text-xs leading-relaxed text-zinc-400">We cheer passionately for FAST NUCES while maintaining utter respect for all student athletes and match officials.</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
-            <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">2. LOUD, POSITIVE SUPPORT</h4>
-            <p class="text-xs leading-relaxed text-zinc-400">Bring maximum energy, chants, and drums. Discriminatory or abusive language is strictly prohibited.</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
-            <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">3. KEEP GROUNDS CLEAN</h4>
-            <p class="text-xs leading-relaxed text-zinc-400">Respect our campus sports complex. Dispose of trash in designated bins after every match day.</p>
+      <div class="relative overflow-hidden p-8 sm:p-12 rounded-3xl border border-red-900/40 bg-zinc-950">
+        <div class="absolute inset-0">
+          <img
+            src="/background/background2.jpeg"
+            alt="Ground rules background"
+            class="h-full w-full object-cover object-center opacity-30"
+          />
+        </div>
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="relative z-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-red-500">GROUND RULES</span>
+          <h2 class="font-bebas text-5xl text-white tracking-wide mt-1 mb-6">FASTIAN FAN CODE OF CONDUCT</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-zinc-300">
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">1. RESPECT ATHLETES & REFEREES</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">We cheer passionately for FAST NUCES while maintaining utter respect for all student athletes and match officials.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">2. LOUD, POSITIVE SUPPORT</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">Bring maximum energy, chants, and drums. Discriminatory or abusive language is strictly prohibited.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-black/60 border border-zinc-800">
+              <h4 class="font-bebas text-2xl text-white tracking-wider mb-2">3. KEEP GROUNDS CLEAN</h4>
+              <p class="text-xs leading-relaxed text-zinc-400">Respect our campus sports complex. Dispose of trash in designated bins after every match day.</p>
+            </div>
           </div>
         </div>
       </div>
