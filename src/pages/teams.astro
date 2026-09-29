@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import { Image } from "astro:assets";
 
 // Row 1: Faculty Leadership Posters
 import facultyHeadImg from "../assets/Core_team_sports_soceity/faculty_head.PNG";
@@ -33,7 +32,14 @@ import headOutreachImg from "../assets/Core_team_sports_soceity/head_outReach.PN
 import headSocialMediaImg from "../assets/Core_team_sports_soceity/head_social_media.PNG";
 import laraibImg from "../assets/Core_team_sports_soceity/Laraib.png";
 
-const row1Faculty = [
+type TeamMember = {
+  name: string;
+  role: string;
+  image: string | { src: string };
+  badge: string;
+};
+
+const row1Faculty: TeamMember[] = [
   {
     name: "Faculty Head",
     role: "Faculty Head & Director of Sports",
@@ -48,7 +54,7 @@ const row1Faculty = [
   },
 ];
 
-const row2Executive = [
+const row2Executive: TeamMember[] = [
   {
     name: "President",
     role: "President, Sports Society",
@@ -75,7 +81,7 @@ const row2Executive = [
   },
 ];
 
-const row3Heads = [
+const row3Heads: TeamMember[] = [
   { name: "Head of Cricket", role: "Discipline Lead - Cricket", image: headCricketImg, badge: "DISCIPLINE HEAD" },
   { name: "Head of Futsal", role: "Discipline Lead - Futsal", image: headFutsalImg, badge: "DISCIPLINE HEAD" },
   { name: "Head of Badminton", role: "Discipline Lead - Badminton", image: headBadmintonImg, badge: "DISCIPLINE HEAD" },
@@ -128,8 +134,8 @@ const row3Heads = [
           {row1Faculty.map((member) => (
             <div class="group relative rounded-3xl overflow-hidden bg-zinc-950 border border-red-600/70 shadow-2xl shadow-red-950/50 hover:-translate-y-2 transition-all duration-500 flex flex-col">
               <div class="relative w-full overflow-hidden bg-black">
-                <Image
-                  src={member.image}
+                <img
+                  src={typeof member.image === 'string' ? member.image : member.image.src}
                   alt={member.name}
                   class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -164,8 +170,8 @@ const row3Heads = [
           {row2Executive.map((member) => (
             <div class="group relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/70 shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col">
               <div class="relative w-full overflow-hidden bg-black">
-                <Image
-                  src={member.image}
+                <img
+                  src={typeof member.image === 'string' ? member.image : member.image.src}
                   alt={member.name}
                   class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -201,8 +207,8 @@ const row3Heads = [
           {row3Heads.map((member) => (
             <div class="group relative rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-red-600/70 shadow-lg hover:-translate-y-1.5 transition-all duration-500 flex flex-col">
               <div class="relative w-full overflow-hidden bg-black">
-                <Image
-                  src={member.image}
+                <img
+                  src={typeof member.image === 'string' ? member.image : member.image.src}
                   alt={member.name}
                   class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />

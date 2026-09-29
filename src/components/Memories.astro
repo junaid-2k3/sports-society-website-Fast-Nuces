@@ -1,5 +1,5 @@
 ---
-const normalizeImageUrl = (value) => {
+const normalizeImageUrl = (value: string | { default?: string; src?: string } | null | undefined): string => {
   if (typeof value === 'string') return value;
   if (value && typeof value === 'object') {
     return value.default ?? value.src ?? '';
@@ -12,10 +12,12 @@ const imageEntries = Object.values(
     eager: true,
     import: 'default',
   }),
-).map(normalizeImageUrl).filter(Boolean);
+) as Array<string | { default?: string; src?: string }>;
 
-const leftImages = imageEntries.filter((_, index) => index % 2 === 0);
-const rightImages = imageEntries.filter((_, index) => index % 2 !== 0);
+const normalizedImages = imageEntries.map(normalizeImageUrl).filter((value): value is string => Boolean(value));
+
+const leftImages = normalizedImages.filter((_, index) => index % 2 === 0);
+const rightImages = normalizedImages.filter((_, index) => index % 2 !== 0);
 
 const title = 'Some memories from';
 ---
@@ -58,25 +60,28 @@ const title = 'Some memories from';
 </section>
 
 <script>
-  const cards = [...document.querySelectorAll('.memory-card')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.memory-card')];
 
-  const parseImages = (value) => {
-    return (value || '')
+  const parseImages = (value: string | undefined): string[] => {
+    return (value ?? '')
       .split('|')
       .map((entry) => entry.trim())
       .filter(Boolean)
       .map((entry) => decodeURIComponent(entry));
   };
 
-  const setupCard = (card) => {
-    const current = card.querySelector('.memory-photo--current');
-    const next = card.querySelector('.memory-photo--next');
+  const setupCard = (card: HTMLElement) => {
+    const current = card.querySelector<HTMLImageElement>('.memory-photo--current');
+    const next = card.querySelector<HTMLImageElement>('.memory-photo--next');
     const images = parseImages(card.dataset.images);
-    let currentIndex = 0;
-    let active = current;
-    let incoming = next;
 
-    if (!images.length) return { tick: () => {} };
+    if (!current || !next || !images.length) {
+      return { tick: () => {} };
+    }
+
+    let currentIndex = 0;
+    let active: HTMLImageElement | null = current;
+    let incoming: HTMLImageElement | null = next;
 
     active.src = images[0];
     incoming.src = images[1] || images[0];
@@ -87,6 +92,8 @@ const title = 'Some memories from';
 
     return {
       tick: () => {
+        if (!active || !incoming) return;
+
         const nextIndex = (currentIndex + 1) % images.length;
         const previous = active;
         const upcoming = incoming;
@@ -98,6 +105,7 @@ const title = 'Some memories from';
         previous.style.transform = 'translate3d(-100%, 0, 0)';
 
         requestAnimationFrame(() => {
+          if (!upcoming || !previous) return;
           upcoming.style.transition = 'transform 0.9s ease, opacity 0.9s ease';
           previous.style.transition = 'transform 0.9s ease, opacity 0.9s ease';
           upcoming.style.transform = 'translate3d(0, 0, 0)';
